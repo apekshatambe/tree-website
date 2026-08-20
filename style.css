@@ -1,4 +1,5 @@
 body { 
+  scroll-behavior: smooth;
     margin: 0;
     font-family: "Manrope", sans-serif;
     background: #f8f5ee;
@@ -435,6 +436,14 @@ body {
 .logoof {
     margin-top: 10px;
     margin-right: 30px;
+}
+
+.logoof img {
+    display: block;
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .footer-desc {
