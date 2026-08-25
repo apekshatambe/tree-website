@@ -376,16 +376,16 @@
   </footer>
   <script src="wishlist.js"></script>
   <script>
-    (function () {
-      var input = document.getElementById("home-search");
+    (() => {
+      const input = document.getElementById("home-search");
       if (!input) return;
-      input.addEventListener("keydown", function (e) {
+      input.addEventListener("keydown", (e) => {
         if (e.key !== "Enter") return;
         e.preventDefault();
-        var q = input.value.trim();
+        const q = input.value.trim();
         window.location.href =
           "../plantshop/plantshop.html" +
-          (q ? "?q=" + encodeURIComponent(q) : "");
+          (q ? `?q=${encodeURIComponent(q)}` : "");
       });
     })();
   </script>
