@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVELI — Owner & Admin Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Admin CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <div class="admin-container">
+
+        <!-- ==========================================
+             1. SIDEBAR NAVIGATION
+             ========================================== -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <!-- Brand Logo Header -->
+            <div class="sidebar-brand">
+                <a href="admin.html" class="brand-logo-box">
+                    <img src="images/tre1.png" alt="ARVELI Logo" class="brand-logo-img">
+                </a>
+                <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar">&times;</button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-menu">
+                <p class="menu-label">Main Menu</p>
+                
+                <a href="admin.html" class="menu-item active">
+                    <span class="menu-icon">📊</span>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">🪴</span>
+                    <span class="menu-text">Products</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    <span class="menu-text">Orders</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📅</span>
+                    <span class="menu-text">Bookings</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">👥</span>
+                    <span class="menu-text">Customers</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">🏷️</span>
+                    <span class="menu-text">Categories</span>
+                </a>
+
+                <p class="menu-label">System</p>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">⚙️</span>
+                    <span class="menu-text">Settings</span>
+                </a>
+
+                <a href="index.html" class="menu-item text-link" target="_blank">
+                    <span class="menu-icon">🌐</span>
+                    <span class="menu-text">View Customer Site</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Owner Profile Footer -->
+            <div class="sidebar-user">
+                <div class="user-avatar">👨‍🌾</div>
+                <div class="user-info">
+                    <span class="user-name">Owner</span>
+                    <span class="user-role">Nursery Admin</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Sidebar Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+        <main class="admin-main">
+
+            <!-- Top Header Bar -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="mobile-toggle-btn" id="mobileToggleBtn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <div>
+                        <h1 class="header-title">Dashboard Overview</h1>
+                        <p class="header-subtitle">Welcome back, manage your plant store & bookings.</p>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="header-search">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Search orders, plants...">
+                    </div>
+                    <button class="btn btn-primary">
+                        <span>+ Add Plant</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <!-- Stat Card 1 -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Total Products</span>
+                        <span class="stat-icon-bg green">🪴</span>
+                    </div>
+                    <h2 class="stat-value">6</h2>
+                    <span class="stat-trend trend-up">↑ 4 New this week</span>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Total Orders</span>
+                        <span class="stat-icon-bg blue">📦</span>
+                    </div>
+                    <h2 class="stat-value">4</h2>
+                    <span class="stat-trend trend-up">↑ 12% vs last month</span>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Pending Orders</span>
+                        <span class="stat-icon-bg orange">⏳</span>
+                    </div>
+                    <h2 class="stat-value">1</h2>
+                    <span class="stat-trend trend-warn">Requires Action</span>
+                </div>
+
+                <!-- Stat Card 4 -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Total Customers</span>
+                        <span class="stat-icon-bg purple">👥</span>
+                    </div>
+                    <h2 class="stat-value">4</h2>
+                    <span class="stat-trend trend-up">↑ 18 Active Buyers</span>
+                </div>
+
+                <!-- Stat Card 5 -->
+                <div class="stat-card highlight-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Total Revenue</span>
+                        <span class="stat-icon-bg gold">💰</span>
+                    </div>
+                    <h2 class="stat-value">₹2,046</h2>
+                    <span class="stat-trend trend-up">↑ ₹12,400 this month</span>
+                </div>
+            </div>
+
+            <div class="card dashboard-card">
+                <div class="card-header flex-between">
+                    <div>
+                        <h3 class="card-title">Recent Plant Bookings</h3>
+                        <p class="card-subtitle">Latest customer orders requiring fulfillment</p>
+                    </div>
+                    <button class="btn btn-sm btn-outline">View All</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Plant Booked</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ORD-901</strong></td>
+                                <td>Rahul Sharma</td>
+                                <td>Monstera Deliciosa</td>
+                                <td><strong>₹599</strong></td>
+                                <td><span class="badge badge-pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ORD-902</strong></td>
+                                <td>Priya Patel</td>
+                                <td>Snake Plant</td>
+                                <td><strong>₹449</strong></td>
+                                <td><span class="badge badge-confirmed">Confirmed</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ORD-903</strong></td>
+                                <td>Amit Verma</td>
+                                <td>Areca Palm</td>
+                                <td><strong>₹799</strong></td>
+                                <td><span class="badge badge-delivered">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ORD-904</strong></td>
+                                <td>Neha Gupta</td>
+                                <td>Peace Lily</td>
+                                <td><strong>₹499</strong></td>
+                                <td><span class="badge badge-cancelled">Cancelled</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

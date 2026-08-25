@@ -29,10 +29,12 @@ body {
 
 .logof img {
     display: block;
-    width: 100px;
-    height: 50px;
-    object-fit: cover;
+    width: 120px;
+    height: 56px;
+    object-fit: contain;
+    object-position: center;
     border-radius: 10px;
+    background: transparent;
 }
 
 .nav-links {
@@ -440,10 +442,13 @@ body {
 
 .logoof img {
     display: block;
-    width: 100px;
-    height: 50px;
-    object-fit: cover;
+    width: 140px;
+    height: 70px;
+    object-fit: contain;
+    object-position: center;
     border-radius: 10px;
+    background: transparent;
+    outline: 3px solid #c1703d;
 }
 
 .footer-desc {

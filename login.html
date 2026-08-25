@@ -1,494 +1,469 @@
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>ARVELI - Login & Sign Up</title>
-
-            <style>
-            *{box-sizing:border-box;margin:0;padding:0}
-
-            body{
-                min-height:100vh;
-                background:#e8eee8;
-                font-family:Arial,Helvetica,sans-serif;
-                color:#26352b;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                padding:25px;
-            }
-
-            .card{
-                width:100%;
-                max-width:440px;
-                background:#fbfaf7;
-                border-radius:28px;
-                padding:42px;
-                box-shadow:0 18px 50px rgba(30,81,52,.13);
-            }
-
-            .logo{
-                display:block;
-                width:125px;
-                height:125px;
-                object-fit:contain;
-                margin:auto;
-                border-radius:10px;
-            }
-
-            .brand{
-                text-align:center;
-                color:#1e5134;
-                font-size:28px;
-                font-weight:bold;
-                letter-spacing:7px;
-                margin:8px 0 28px;
-            }
-
-            /* Customer / Shop Owner */
-            .interface-tabs{
-                display:grid;
-                grid-template-columns:1fr 1fr;
-                background:#e5ebe5;
-                padding:4px;
-                border-radius:12px;
-                margin-bottom:28px;
-            }
-
-            .interface-tabs button{
-                border:0;
-                background:transparent;
-                color:#707970;
-                padding:12px;
-                border-radius:9px;
-                font-size:14px;
-                font-weight:bold;
-                cursor:pointer;
-            }
-
-            .interface-tabs button.active{
-                background:white;
-                color:#1e5134;
-                box-shadow:0 3px 12px rgba(30,81,52,.08);
-            }
-
-            h1{
-                text-align:center;
-                font-size:27px;
-                margin-bottom:7px;
-            }
-
-            .subtitle{
-                text-align:center;
-                color:#727b74;
-                font-size:14px;
-                margin-bottom:28px;
-            }
-
-            .field{
-                margin-bottom:17px;
-            }
-
-            label{
-                display:block;
-                font-size:13px;
-                font-weight:bold;
-                margin:0 0 7px 3px;
-            }
-
-            input{
-                width:100%;
-                height:54px;
-                border:1px solid transparent;
-                outline:none;
-                border-radius:12px;
-                background:#e2e8e1;
-                padding:0 15px;
-                font-size:15px;
-                color:#26352b;
-            }
-
-            input:focus{
-                background:white;
-                border-color:#709477;
-            }
-
-            .password-box{
-                position:relative;
-            }
-
-            .password-box input{
-                padding-right:65px;
-            }
-
-            .show-btn{
-                display:none!important;
-            }
-
-            /* Reduce extra right padding when the show button is hidden */
-            .password-box input{padding-right:15px}
-
-            .main-btn{
-                width:100%;
-                height:55px;
-                border:0;
-                border-radius:28px;
-                background:#6f9474;
-                color:white;
-                font-size:17px;
-                font-weight:bold;
-                cursor:pointer;
-                margin-top:5px;
-            }
-
-            .main-btn:hover{
-                background:#1e5134;
-            }
-
-            .switch-text{
-                text-align:center;
-                color:#727b74;
-                font-size:14px;
-                margin-top:27px;
-            }
-
-            .switch-text button{
-                border:0;
-                background:none;
-                color:#1e5134;
-                font-weight:bold;
-                text-decoration:underline;
-                cursor:pointer;
-                font-size:14px;
-            }
-
-            .message{
-                text-align:center;
-                color:#a44747;
-                font-size:13px;
-                min-height:18px;
-                margin-top:10px;
-            }
-
-            @media(max-width:500px){
-                body{padding:12px}
-                .card{
-                    padding:34px 24px 30px;
-                    border-radius:23px;
-                }
-                .logo{
-                    width:110px;
-                    height:110px;
-                }
-            }
-            </style>
-            </head>
-
-            <body>
-
-            <div class="card">
-
-                <img class="logo"
-                        src="images/logo.jpeg"
-                        alt="ARVELI Logo">
-
-                <!-- Customer / Shop Owner -->
-                <div class="interface-tabs">
-
-                    <button id="customerTab"
-                            class="active"
-                            onclick="selectRole('customer')">
-                        Customer
-                    </button>
-
-                    <button id="ownerTab"
-                            onclick="selectRole('owner')">
-                        Shop Owner
-                    </button>
-
-                </div>
-
-                <!-- ================= LOGIN ================= -->
-
-                <div id="loginPage">
-
-                    <h1 id="loginHeading">Welcome Back</h1>
-
-                    <p class="subtitle" id="loginSubtitle">
-                        Login to continue to ARVELI
-                    </p>
-
-                    <form onsubmit="login(event)">
-
-                        <div class="field">
-                            <label>Email</label>
-                            <input type="email"
-                                placeholder="Enter your email"
-                                required>
-                        </div>
-
-                        <div class="field">
-                            <label>Password</label>
-
-                            <div class="password-box">
-
-                                <input id="loginPassword"
-                                    type="password"
-                                    placeholder="Enter your password"
-                                    required>
-
-                                <button type="button"
-                                        class="show-btn"
-                                        onclick="togglePassword('loginPassword',this)">
-                                    Show
-                                </button>
-
-                            </div>
-                        </div>
-
-                        <button class="main-btn"
-                                id="loginButton"
-                                type="submit">
-                            Login
-                        </button>
-
-                    </form>
-
-                    <div class="message" id="loginMessage"></div>
-
-                    <div class="switch-text">
-                        Don't have an account?
-                        <button type="button" onclick="showSignup()">
-                            Sign Up
-                        </button>
-                    </div>
-
-                </div>
-
-
-                <!-- ================= SIGN UP ================= -->
-
-                <div id="signupPage" style="display:none">
-
-                    <h1 id="signupHeading">Create Your Account</h1>
-
-                    <p class="subtitle" id="signupSubtitle">
-                        Create your ARVELI customer account
-                    </p>
-
-                    <form onsubmit="signup(event)">
-
-                        <div class="field">
-                            <label>Full Name</label>
-                            <input type="text"
-                                placeholder="Enter your full name"
-                                required>
-                        </div>
-
-                        <div class="field">
-                            <label>Email</label>
-                            <input type="email"
-                                placeholder="Enter your email"
-                                required>
-                        </div>
-
-                        <div class="field">
-                            <label>Password</label>
-
-                            <div class="password-box">
-
-                                <input id="signupPassword"
-                                    type="password"
-                                    placeholder="Create a password"
-                                    required>
-
-                                <button type="button"
-                                        class="show-btn"
-                                        onclick="togglePassword('signupPassword',this)">
-                                    Show
-                                </button>
-
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>Confirm Password</label>
-
-                            <div class="password-box">
-
-                                <input id="confirmPassword"
-                                    type="password"
-                                    placeholder="Confirm your password"
-                                    required>
-
-                                <button type="button"
-                                        class="show-btn"
-                                        onclick="togglePassword('confirmPassword',this)">
-                                    Show
-                                </button>
-
-                            </div>
-                        </div>
-
-                        <button class="main-btn"
-                                id="signupButton"
-                                type="submit">
-                            Sign Up
-                        </button>
-
-                    </form>
-
-                    <div class="message" id="signupMessage"></div>
-
-                    <div class="switch-text">
-                        Already have an account?
-                        <button type="button" onclick="showLogin()">
-                            Log In
-                        </button>
-                    </div>
-
-                </div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARVELI - Login & Sign Up</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    min-height:100vh;
+    background:#e8eee8;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#26352b;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.card{
+    width:100%;
+    max-width:440px;
+    background:#fbfaf7;
+    border-radius:28px;
+    padding:42px;
+    box-shadow:0 18px 50px rgba(30,81,52,.13);
+}
+
+.logo{
+    display:block;
+    width:125px;
+    height:125px;
+    object-fit:contain;
+    margin:auto;
+}
+
+.brand{
+    text-align:center;
+    color:#1e5134;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:7px;
+    margin:8px 0 28px;
+}
+
+/* Customer / Shop Owner Tabs */
+.interface-tabs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:#e5ebe5;
+    padding:4px;
+    border-radius:12px;
+    margin-bottom:28px;
+}
+
+.interface-tabs button{
+    border:0;
+    background:transparent;
+    color:#707970;
+    padding:12px;
+    border-radius:9px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.interface-tabs button.active{
+    background:white;
+    color:#1e5134;
+    box-shadow:0 3px 12px rgba(30,81,52,.08);
+}
+
+h1{
+    text-align:center;
+    font-size:27px;
+    margin-bottom:7px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#727b74;
+    font-size:14px;
+    margin-bottom:28px;
+}
+
+.field{
+    margin-bottom:17px;
+}
+
+label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin:0 0 7px 3px;
+}
+
+input{
+    width:100%;
+    height:54px;
+    border:1px solid transparent;
+    outline:none;
+    border-radius:12px;
+    background:#e2e8e1;
+    padding:0 15px;
+    font-size:15px;
+    color:#26352b;
+}
+
+input:focus{
+    background:white;
+    border-color:#709477;
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    padding-right:15px;
+}
+
+.show-btn{
+    display:none!important;
+}
+
+.main-btn{
+    width:100%;
+    height:55px;
+    border:0;
+    border-radius:28px;
+    background:#6f9474;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.main-btn:hover{
+    background:#1e5134;
+}
+
+.switch-text{
+    text-align:center;
+    color:#727b74;
+    font-size:14px;
+    margin-top:27px;
+}
+
+.switch-text button{
+    border:0;
+    background:none;
+    color:#1e5134;
+    font-weight:bold;
+    text-decoration:underline;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.message{
+    text-align:center;
+    color:#a44747;
+    font-size:13px;
+    min-height:18px;
+    margin-top:10px;
+}
+
+@media(max-width:500px){
+    body{padding:12px}
+    .card{
+        padding:34px 24px 30px;
+        border-radius:23px;
+    }
+    .logo{
+        width:110px;
+        height:110px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <img class="logo"
+            src="images/tre1.png"
+            alt="ARVELI Logo">
+
+    <!-- Customer / Shop Owner Role Tabs -->
+    <div class="interface-tabs">
+
+        <button id="customerTab"
+                class="active"
+                onclick="selectRole('customer')">
+            Customer
+        </button>
+
+        <button id="ownerTab"
+                onclick="selectRole('owner')">
+            Shop Owner
+        </button>
+
+    </div>
+
+    <!-- ================= LOGIN FORM ================= -->
+
+    <div id="loginPage">
+
+        <h1 id="loginHeading">Welcome Back</h1>
+
+        <p class="subtitle" id="loginSubtitle">
+            Login to continue to ARVELI
+        </p>
+
+        <form onsubmit="login(event)">
+
+            <div class="field">
+                <label>Email</label>
+                <input type="email"
+                    placeholder="Enter your email"
+                    required>
             </div>
 
+            <div class="field">
+                <label>Password</label>
 
-            <script>
+                <div class="password-box">
+                    <input id="loginPassword"
+                        type="password"
+                        placeholder="Enter your password"
+                        required>
+                </div>
+            </div>
 
-            let selectedRole = "customer";
+            <button class="main-btn"
+                    id="loginButton"
+                    type="submit">
+                Login
+            </button>
 
-            function selectRole(role){
+        </form>
 
-                selectedRole = role;
+        <div class="message" id="loginMessage"></div>
 
-                document.getElementById("customerTab")
-                    .classList.toggle("active", role === "customer");
+        <div class="switch-text">
+            Don't have an account?
+            <button type="button" onclick="showSignup()">
+                Sign Up
+            </button>
+        </div>
 
-                document.getElementById("ownerTab")
-                    .classList.toggle("active", role === "owner");
-
-                if(role === "customer"){
-
-                    document.getElementById("loginHeading").textContent =
-                        "Welcome Back";
-
-                    document.getElementById("loginSubtitle").textContent =
-                        "Login to continue to ARVELI";
-
-                    document.getElementById("loginButton").textContent =
-                        "Login";
-
-                    document.getElementById("signupHeading").textContent =
-                        "Create Your Account";
-
-                    document.getElementById("signupSubtitle").textContent =
-                        "Create your ARVELI customer account";
-
-                    document.getElementById("signupButton").textContent =
-                        "Sign Up";
-
-                }else{
-
-                    document.getElementById("loginHeading").textContent =
-                        "Welcome, Shop Owner";
-
-                    document.getElementById("loginSubtitle").textContent =
-                        "Login to manage your ARVELI shop";
-
-                    document.getElementById("loginButton").textContent =
-                        "Login as Shop Owner";
-
-                    document.getElementById("signupHeading").textContent =
-                        "Create Your Shop Account";
-
-                    document.getElementById("signupSubtitle").textContent =
-                        "Create your ARVELI shop owner account";
-
-                    document.getElementById("signupButton").textContent =
-                        "Sign Up as Shop Owner";
-                }
-            }
+    </div>
 
 
-            function showSignup(){
-
-                document.getElementById("loginPage").style.display = "none";
-                document.getElementById("signupPage").style.display = "block";
-
-                document.getElementById("loginMessage").textContent = "";
-            }
 
 
-            function showLogin(){
+    <div id="signupPage" style="display:none">
 
-                document.getElementById("signupPage").style.display = "none";
-                document.getElementById("loginPage").style.display = "block";
+        <h1 id="signupHeading">Create Your Account</h1>
 
-                document.getElementById("signupMessage").textContent = "";
-            }
+        <p class="subtitle" id="signupSubtitle">
+            Create your ARVELI customer account
+        </p>
+
+        <form onsubmit="signup(event)">
+
+            <div class="field">
+                <label>Full Name</label>
+                <input type="text"
+                    placeholder="Enter your full name"
+                    required>
+            </div>
+
+            <div class="field">
+                <label>Email</label>
+                <input type="email"
+                    placeholder="Enter your email"
+                    required>
+            </div>
+
+            <div class="field">
+                <label>Password</label>
+
+                <div class="password-box">
+                    <input id="signupPassword"
+                        type="password"
+                        placeholder="Create a password"
+                        required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Confirm Password</label>
+
+                <div class="password-box">
+                    <input id="confirmPassword"
+                        type="password"
+                        placeholder="Confirm your password"
+                        required>
+                </div>
+            </div>
+
+            <button class="main-btn"
+                    id="signupButton"
+                    type="submit">
+                Sign Up
+            </button>
+
+        </form>
+
+        <div class="message" id="signupMessage"></div>
+
+        <div class="switch-text">
+            Already have an account?
+            <button type="button" onclick="showLogin()">
+                Log In
+            </button>
+        </div>
+
+    </div>
+
+</div>
 
 
-            function togglePassword(id,button){
+<script>
 
-                const input = document.getElementById(id);
+// Current selected role ('customer' or 'owner')
+let selectedRole = "customer";
 
-                if(input.type === "password"){
+// Demo credentials for Shop Owner Login
+const DEMO_OWNER_EMAIL = "arveli@gmail.com";
+const DEMO_OWNER_PASS = "1234";
 
-                    input.type = "text";
-                    button.textContent = "Hide";
+function selectRole(role){
+    selectedRole = role;
 
-                }else{
+    document.getElementById("customerTab")
+        .classList.toggle("active", role === "customer");
 
-                    input.type = "password";
-                    button.textContent = "Show";
-                }
-            }
+    document.getElementById("ownerTab")
+        .classList.toggle("active", role === "owner");
+
+    document.getElementById("loginMessage").textContent = "";
+    document.getElementById("signupMessage").textContent = "";
+
+    if(role === "customer"){
+        document.getElementById("loginHeading").textContent = "Welcome Back";
+        document.getElementById("loginSubtitle").textContent = "Login to continue to ARVELI";
+        document.getElementById("loginButton").textContent = "Login";
+
+        document.getElementById("signupHeading").textContent = "Create Your Account";
+        document.getElementById("signupSubtitle").textContent = "Create your ARVELI customer account";
+        document.getElementById("signupButton").textContent = "Sign Up";
+    } else {
+        document.getElementById("loginHeading").textContent = "Welcome, Shop Owner";
+        document.getElementById("loginSubtitle").textContent = "Login to manage your ARVELI shop";
+        document.getElementById("loginButton").textContent = "Login as Shop Owner";
+    }
+}
 
 
-            function login(event){
-
-                event.preventDefault();
-                const email = document.querySelector('#loginPage input[type="email"]').value.trim();
-                const pwd = document.getElementById('loginPassword').value;
-                const msg = document.getElementById('loginMessage');
-                if(!email || !pwd){ msg.textContent = 'Please enter email and password.'; return; }
-                msg.style.color = '#1e5134'; msg.textContent = 'Logging in...';
-                try{ localStorage.setItem('userEmail', email); localStorage.setItem('userRole', selectedRole); }catch(e){}
-                setTimeout(()=>{ window.location.href = 'index.html'; }, 600);
-            }
+function showSignup(){
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("signupPage").style.display = "block";
+    document.getElementById("loginMessage").textContent = "";
+}
 
 
-            function signup(event){
+function showLogin(){
+    document.getElementById("signupPage").style.display = "none";
+    document.getElementById("loginPage").style.display = "block";
+    document.getElementById("signupMessage").textContent = "";
+}
 
-                event.preventDefault();
 
-                const password =
-                    document.getElementById("signupPassword").value;
+// LOGIN FUNCTION
+function login(event){
+    event.preventDefault();
+    
+    const emailInput = document.querySelector('#loginPage input[type="email"]').value.trim();
+    const passwordInput = document.getElementById('loginPassword').value;
+    const msg = document.getElementById('loginMessage');
 
-                const confirm =
-                    document.getElementById("confirmPassword").value;
+    if(!emailInput || !passwordInput){
+        msg.style.color = '#a44747';
+        msg.textContent = 'Please enter both email and password.';
+        return;
+    }
 
-                const message =
-                    document.getElementById("signupMessage");
+    // IF SHOP OWNER ROLE IS SELECTED
+    if(selectedRole === "owner") {
+        // Validate Shop Owner Credentials
+        if(emailInput.toLowerCase() === DEMO_OWNER_EMAIL.toLowerCase() && passwordInput === DEMO_OWNER_PASS) {
+            msg.style.color = '#1e5134';
+            msg.textContent = 'Owner login successful! Opening Dashboard...';
+            
+            try {
+                localStorage.setItem('userEmail', emailInput);
+                localStorage.setItem('userRole', 'owner');
+            } catch(e){}
 
-                if(password !== confirm){
+            // Redirect Owner to admin.html
+            setTimeout(() => {
+                window.location.href = 'admin.html';
+            }, 700);
+        } else {
+            msg.style.color = '#a44747';
+            msg.textContent = 'Invalid Owner Email or Password! (Demo: owner@arveli.com / admin123)';
+        }
+    } 
+    // IF CUSTOMER ROLE IS SELECTED
+    else {
 
-                    message.textContent =
-                        "Passwords do not match.";
+        msg.style.color = '#1e5134';
+        msg.textContent = 'Login successful! Redirecting to shop...';
 
-                    return;
-                }
+        try {
+            localStorage.setItem('userEmail', emailInput);
+            localStorage.setItem('userRole', 'customer');
+        } catch(e){}
 
-                // simulate success, persist minimal info and open navbar
-                const name = document.querySelector('#signupPage input[type="text"]').value.trim();
-                const email = document.querySelector('#signupPage input[type="email"]').value.trim();
-                message.style.color = "#1e5134";
-                message.textContent = "Account created — redirecting...";
-                try{ localStorage.setItem('userName', name); localStorage.setItem('userEmail', email); localStorage.setItem('userRole', selectedRole); }catch(e){}
-                setTimeout(()=>{ window.location.href = 'index.html'; }, 700);
-            }
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 700);
+    }
+}
 
-            </script>
 
-            </body>
-            </html>
+function signup(event){
+    event.preventDefault();
+
+    const name = document.querySelector('#signupPage input[type="text"]').value.trim();
+    const email = document.querySelector('#signupPage input[type="email"]').value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const confirm = document.getElementById("confirmPassword").value;
+    const message = document.getElementById("signupMessage");
+
+    if(password !== confirm){
+        message.style.color = "#a44747";
+        message.textContent = "Passwords do not match.";
+        return;
+    }
+
+
+    message.style.color = "#1e5134";
+    message.textContent = "Account created successfully! Redirecting...";
+
+    try {
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userRole', selectedRole);
+    } catch(e){}
+
+    setTimeout(() => {
+        if(selectedRole === "owner") {
+            window.location.href = 'admin.html';
+        } else {
+            window.location.href = 'index.html';
+        }
+    }, 700);
+}
+
+</script>
+
+</body>
+</html>
