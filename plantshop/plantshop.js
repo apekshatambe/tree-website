@@ -1,174 +1,178 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const grid = document.getElementById("products-grid");
-    if (!grid) return;
+  var grid = document.getElementById("products-grid");
+  if (!grid) return;
 
-    const categorySelect = document.getElementById("filter-category");
-    const careSelect = document.getElementById("filter-care");
-    const lightSelect = document.getElementById("filter-light");
-    const sortSelect = document.getElementById("filter-sort");
-    const clearBtn = document.querySelector(".filter-clear");
-    const filterToggle = document.querySelector(".filter-toggle");
-    const filterPanel = document.getElementById("filter-panel");
-    const activeBadge = document.querySelector(".filter-active-badge");
-    const resultsCount = document.querySelector(".filter-results-count");
-    const noResults = document.querySelector(".no-results");
-    const searchInput = document.querySelector(".search-container input");
+  var categorySelect = document.getElementById("filter-category");
+  var careSelect = document.getElementById("filter-care");
+  var lightSelect = document.getElementById("filter-light");
+  var sortSelect = document.getElementById("filter-sort");
+  var clearBtn = document.querySelector(".filter-clear");
+  var filterToggle = document.querySelector(".filter-toggle");
+  var filterPanel = document.getElementById("filter-panel");
+  var activeBadge = document.querySelector(".filter-active-badge");
+  var resultsCount = document.querySelector(".filter-results-count");
+  var noResults = document.querySelector(".no-results");
+  var searchInput =
+    document.getElementById("plant-search") ||
+    document.querySelector(".search-container input");
+  var cards = Array.from(grid.querySelectorAll(".product-card"));
 
-    const cards = Array.from(grid.querySelectorAll(".product-card"));
+  function val(el, fallback) {
+    return el ? el.value : fallback;
+  }
 
-    function countActiveFilters() {
-        let count = 0;
-        if (categorySelect && categorySelect.value !== "all") count++;
-        if (careSelect && careSelect.value !== "all") count++;
-        if (lightSelect && lightSelect.value !== "all") count++;
-        if (sortSelect && sortSelect.value !== "default") count++;
-        if (searchInput && searchInput.value.trim()) count++;
-        return count;
+  function setPanel(open) {
+    if (!filterPanel || !filterToggle) return;
+    filterPanel.hidden = !open;
+    filterToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function matches(card, category, care, light, query) {
+    if (category !== "all") {
+      var cats = (card.dataset.category || "").split(/\s+/);
+      if (cats.indexOf(category) === -1) return false;
+    }
+    if (care !== "all" && card.dataset.care !== care) return false;
+    if (light !== "all" && card.dataset.light !== light) return false;
+
+    if (query) {
+      var q = query.toLowerCase();
+      var tag = card.querySelector(".product-tag");
+      var title = card.querySelector("h3");
+      var haystacks = [
+        card.dataset.name || "",
+        card.dataset.category || "",
+        card.dataset.care || "",
+        card.dataset.light || "",
+        tag ? tag.textContent : "",
+        title ? title.textContent : ""
+      ];
+      var found = haystacks.some(function (text) {
+        return text.toLowerCase().indexOf(q) !== -1;
+      });
+      if (!found) return false;
     }
 
-    function updateActiveBadge() {
-        if (!activeBadge) return;
-        const count = countActiveFilters();
-        activeBadge.textContent = count;
-        activeBadge.hidden = count === 0;
-    }
+    return true;
+  }
 
-    function openFilterPanel() {
-        if (!filterPanel || !filterToggle) return;
-        filterPanel.hidden = false;
-        filterToggle.setAttribute("aria-expanded", "true");
-    }
+  function sortCards(list, sortBy) {
+    return list.slice().sort(function (a, b) {
+      if (sortBy === "price-asc") return Number(a.dataset.price) - Number(b.dataset.price);
+      if (sortBy === "price-desc") return Number(b.dataset.price) - Number(a.dataset.price);
+      if (sortBy === "name-asc") {
+        return (a.dataset.name || "").localeCompare(b.dataset.name || "");
+      }
+      return 0;
+    });
+  }
 
-    function closeFilterPanel() {
-        if (!filterPanel || !filterToggle) return;
-        filterPanel.hidden = true;
-        filterToggle.setAttribute("aria-expanded", "false");
-    }
+  function updateBadge() {
+    if (!activeBadge) return;
+    var count = 0;
+    if (categorySelect && categorySelect.value !== "all") count++;
+    if (careSelect && careSelect.value !== "all") count++;
+    if (lightSelect && lightSelect.value !== "all") count++;
+    if (searchInput && searchInput.value.trim()) count++;
+    activeBadge.textContent = String(count);
+    activeBadge.hidden = count === 0;
+  }
 
-    function toggleFilterPanel() {
-        if (!filterPanel) return;
-        if (filterPanel.hidden) {
-            openFilterPanel();
-        } else {
-            closeFilterPanel();
-        }
-    }
+  function applyFilters() {
+    var category = val(categorySelect, "all");
+    var care = val(careSelect, "all");
+    var light = val(lightSelect, "all");
+    var sortBy = val(sortSelect, "default");
+    var query = searchInput ? searchInput.value.trim() : "";
 
-    function matchesCategory(card, category) {
-        if (category === "all") return true;
-        const categories = (card.dataset.category || "").split(" ");
-        return categories.includes(category);
-    }
-
-    function matchesCare(card, care) {
-        if (care === "all") return true;
-        return card.dataset.care === care;
-    }
-
-    function matchesLight(card, light) {
-        if (light === "all") return true;
-        return card.dataset.light === light;
-    }
-
-    function matchesSearch(card, query) {
-        if (!query) return true;
-        const name = (card.dataset.name || "").toLowerCase();
-        return name.includes(query.toLowerCase());
-    }
-
-    function sortCards(visibleCards, sortBy) {
-        return visibleCards.sort(function (a, b) {
-            if (sortBy === "price-asc") {
-                return Number(a.dataset.price) - Number(b.dataset.price);
-            }
-            if (sortBy === "price-desc") {
-                return Number(b.dataset.price) - Number(a.dataset.price);
-            }
-            if (sortBy === "name-asc") {
-                return (a.dataset.name || "").localeCompare(b.dataset.name || "");
-            }
-            return 0;
-        });
-    }
-
-    function applyFilters() {
-        const category = categorySelect ? categorySelect.value : "all";
-        const care = careSelect ? careSelect.value : "all";
-        const light = lightSelect ? lightSelect.value : "all";
-        const sortBy = sortSelect ? sortSelect.value : "default";
-        const query = searchInput ? searchInput.value.trim() : "";
-
-        const visible = cards.filter(function (card) {
-            return (
-                matchesCategory(card, category) &&
-                matchesCare(card, care) &&
-                matchesLight(card, light) &&
-                matchesSearch(card, query)
-            );
-        });
-
-        cards.forEach(function (card) {
-            card.classList.add("hidden");
-        });
-
-        const sorted = sortCards(visible, sortBy);
-        sorted.forEach(function (card) {
-            card.classList.remove("hidden");
-            grid.appendChild(card);
-        });
-
-        const count = visible.length;
-        if (resultsCount) {
-            resultsCount.textContent =
-                count === cards.length
-                    ? "Showing all " + count + " plants"
-                    : "Showing " + count + " of " + cards.length + " plants";
-        }
-
-        if (noResults) {
-            noResults.hidden = count > 0;
-        }
-
-        updateActiveBadge();
-    }
-
-    function clearFilters() {
-        if (categorySelect) categorySelect.value = "all";
-        if (careSelect) careSelect.value = "all";
-        if (lightSelect) lightSelect.value = "all";
-        if (sortSelect) sortSelect.value = "default";
-        if (searchInput) searchInput.value = "";
-        applyFilters();
-    }
-
-    if (filterToggle) {
-        filterToggle.addEventListener("click", function (e) {
-            e.stopPropagation();
-            toggleFilterPanel();
-        });
-    }
-
-    document.addEventListener("click", function (e) {
-        if (!filterPanel || filterPanel.hidden) return;
-        if (e.target.closest(".shop-toolbar") || e.target.closest(".filter-toggle")) return;
-        closeFilterPanel();
+    var visible = cards.filter(function (card) {
+      return matches(card, category, care, light, query);
     });
 
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeFilterPanel();
-    });
-
-    [categorySelect, careSelect, lightSelect, sortSelect].forEach(function (el) {
-        if (el) el.addEventListener("change", applyFilters);
-    });
-
-    if (clearBtn) {
-        clearBtn.addEventListener("click", clearFilters);
+    if (sortBy === "default") {
+      cards.forEach(function (card) {
+        card.classList.toggle("hidden", visible.indexOf(card) === -1);
+      });
+    } else {
+      cards.forEach(function (card) {
+        card.classList.add("hidden");
+      });
+      sortCards(visible, sortBy).forEach(function (card) {
+        card.classList.remove("hidden");
+        grid.appendChild(card);
+      });
     }
 
-    if (searchInput) {
-        searchInput.addEventListener("input", applyFilters);
+    var count = visible.length;
+    if (resultsCount) {
+      if (query && count === 0) {
+        resultsCount.textContent = 'No results for "' + query + '"';
+      } else if (count === cards.length && !query) {
+        resultsCount.textContent = "Showing all " + count + " plants";
+      } else {
+        resultsCount.textContent =
+          "Showing " + count + " of " + cards.length + " plants";
+      }
     }
 
+    if (noResults) {
+      noResults.hidden = count > 0;
+      noResults.textContent =
+        query && count === 0
+          ? 'No plants match "' + query + '". Try another search.'
+          : "No plants match your filters. Try adjusting your selection.";
+    }
+
+    updateBadge();
+  }
+
+  function clearFilters() {
+    if (categorySelect) categorySelect.value = "all";
+    if (careSelect) careSelect.value = "all";
+    if (lightSelect) lightSelect.value = "all";
+    if (sortSelect) sortSelect.value = "default";
+    if (searchInput) searchInput.value = "";
     applyFilters();
+  }
+
+  if (filterToggle) {
+    filterToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (!filterPanel) return;
+      setPanel(filterPanel.hidden);
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!filterPanel || filterPanel.hidden) return;
+    if (e.target.closest(".shop-toolbar") || e.target.closest(".filter-toggle")) return;
+    setPanel(false);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setPanel(false);
+  });
+
+  [categorySelect, careSelect, lightSelect, sortSelect].forEach(function (el) {
+    if (el) el.addEventListener("change", applyFilters);
+  });
+
+  if (clearBtn) clearBtn.addEventListener("click", clearFilters);
+
+  if (searchInput) {
+    searchInput.addEventListener("input", applyFilters);
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        applyFilters();
+      }
+    });
+
+    try {
+      var q = new URLSearchParams(window.location.search).get("q");
+      if (q) searchInput.value = q;
+    } catch (err) {}
+  }
+
+  applyFilters();
 });

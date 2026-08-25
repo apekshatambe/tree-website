@@ -67,35 +67,36 @@ body {
   gap:3px;
 }
 .search-container {
-  
     display: flex;
     align-items: center;
     background-color: #dfe7dd;
     border-radius: 999px;
     box-sizing: border-box;
-    width:180px;
-    height:38px;
-    transform:translateY(-4px);
-
+    width: 200px;
+    height: 38px;
+    transform: translateY(-4px);
+    padding-right: 4px;
+}
+.search-container .material-symbols-outlined {
+    margin-left: 10px;
+    font-size: 20px;
+    color: #1f3a2e;
+    line-height: 1;
+    cursor: default;
+    flex-shrink: 0;
 }
 .search-container input {
     border: none;
     outline: none;
-    padding: 8px 12px;
+    padding: 8px 10px 8px 6px;
     font-size: 14px;
     background-color: transparent;
     color: #1f3a2e;
-    
+    width: 100%;
+    min-width: 0;
 }
-.material-symbols-outlined
-{
-  margin-left:10px;
-}
-.material-symbols-outlined:hover
-{
-  background-color: #dfe7dd;
-  transition: transform 0.2s ease;
-  cursor:default;
+.search-container input::-webkit-search-cancel-button {
+    cursor: pointer;
 }
 .closr_btn
 {

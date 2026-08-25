@@ -50,16 +50,10 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <div class="search-container">
-
-      <span class="material-symbols-outlined">                        
-search
-</span>
-</button>
-
-      <input type="text" placeholder="Search..." aria-label="Search" />
-    
+      <label for="home-search" class="material-symbols-outlined" aria-hidden="true">search</label>
+      <input id="home-search" type="search" placeholder="Search plants..." aria-label="Search plants" autocomplete="off" />
     </div>
-    <div class= access-link>
+    <div class="access-link">
     
     <button class="wishlist-link" type="button" aria-label="Open wishlist">
       <svg xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +79,7 @@ search
       </svg>
     </a>
     </div>
-    <div class=profile>
+    <div class="profile">
       <a href="../login/login.html">
       <svg xmlns="http://www.w3.org/2000/svg"
      width="24"
@@ -381,5 +375,19 @@ search
     <p>&copy; 2026 Your Company. All rights reserved.</p>
   </footer>
   <script src="wishlist.js"></script>
+  <script>
+    (function () {
+      var input = document.getElementById("home-search");
+      if (!input) return;
+      input.addEventListener("keydown", function (e) {
+        if (e.key !== "Enter") return;
+        e.preventDefault();
+        var q = input.value.trim();
+        window.location.href =
+          "../plantshop/plantshop.html" +
+          (q ? "?q=" + encodeURIComponent(q) : "");
+      });
+    })();
+  </script>
 </body>
 </html>
