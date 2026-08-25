@@ -190,7 +190,7 @@
             <div class="card">
 
                 <img class="logo"
-                        src="images/tre1.png"
+                        src="../images/tre1.png"
                         alt="ARVELI Logo">
 
                 <!-- Customer / Shop Owner -->
@@ -454,7 +454,9 @@
                 if(!email || !pwd){ msg.textContent = 'Please enter email and password.'; return; }
                 msg.style.color = '#1e5134'; msg.textContent = 'Logging in...';
                 try{ localStorage.setItem('userEmail', email); localStorage.setItem('userRole', selectedRole); }catch(e){}
-                setTimeout(()=>{ window.location.href = 'index.html'; }, 600);
+                setTimeout(function () {
+                    window.location.href = selectedRole === 'owner' ? '../admin/admin.html' : '../home/index.html';
+                }, 600);
             }
 
 
@@ -485,7 +487,9 @@
                 message.style.color = "#1e5134";
                 message.textContent = "Account created — redirecting...";
                 try{ localStorage.setItem('userName', name); localStorage.setItem('userEmail', email); localStorage.setItem('userRole', selectedRole); }catch(e){}
-                setTimeout(()=>{ window.location.href = 'index.html'; }, 700);
+                setTimeout(function () {
+                    window.location.href = selectedRole === 'owner' ? '../admin/admin.html' : '../home/index.html';
+                }, 700);
             }
 
             </script>
