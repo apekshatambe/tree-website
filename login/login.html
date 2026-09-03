@@ -351,144 +351,145 @@
                 </div>
 
             </div>
-                        <script>
+                       <script>
 
-// Current selected role ('customer' or 'owner')
-let selectedRole = "customer";
+        // Current selected role ('customer' or 'owner')
+        let selectedRole = "customer";
 
-// Demo credentials for Shop Owner Login
-const DEMO_OWNER_EMAIL = "arveli@gmail.com";
-const DEMO_OWNER_PASS = "1234";
+        // Demo credentials for Shop Owner Login
+        const DEMO_OWNER_EMAIL = "arveli@gmail.com";
+        const DEMO_OWNER_PASS = "1234";
 
-function selectRole(role){
-    selectedRole = role;
+        function selectRole(role) {
+            selectedRole = role;
 
-    document.getElementById("customerTab")
-        .classList.toggle("active", role === "customer");
+            document.getElementById("customerTab")
+                .classList.toggle("active", role === "customer");
 
-    document.getElementById("ownerTab")
-        .classList.toggle("active", role === "owner");
+            document.getElementById("ownerTab")
+                .classList.toggle("active", role === "owner");
 
-    document.getElementById("loginMessage").textContent = "";
-    document.getElementById("signupMessage").textContent = "";
+            document.getElementById("loginMessage").textContent = "";
+            document.getElementById("signupMessage").textContent = "";
 
-    if(role === "customer"){
-        document.getElementById("loginHeading").textContent = "Welcome Back";
-        document.getElementById("loginSubtitle").textContent = "Login to continue to ARVELI";
-        document.getElementById("loginButton").textContent = "Login";
+            if (role === "customer") {
+                document.getElementById("loginHeading").textContent = "Welcome Back";
+                document.getElementById("loginSubtitle").textContent = "Login to continue to ARVELI";
+                document.getElementById("loginButton").textContent = "Login";
 
-        document.getElementById("signupHeading").textContent = "Create Your Account";
-        document.getElementById("signupSubtitle").textContent = "Create your ARVELI customer account";
-        document.getElementById("signupButton").textContent = "Sign Up";
-    } else {
-        document.getElementById("loginHeading").textContent = "Welcome, Shop Owner";
-        document.getElementById("loginSubtitle").textContent = "Login to manage your ARVELI shop";
-        document.getElementById("loginButton").textContent = "Login as Shop Owner";
-    }
-}
-
-
-function showSignup(){
-    document.getElementById("loginPage").style.display = "none";
-    document.getElementById("signupPage").style.display = "block";
-    document.getElementById("loginMessage").textContent = "";
-}
+                document.getElementById("signupHeading").textContent = "Create Your Account";
+                document.getElementById("signupSubtitle").textContent = "Create your ARVELI customer account";
+                document.getElementById("signupButton").textContent = "Sign Up";
+            } else {
+                document.getElementById("loginHeading").textContent = "Welcome, Shop Owner";
+                document.getElementById("loginSubtitle").textContent = "Login to manage your ARVELI shop";
+                document.getElementById("loginButton").textContent = "Login as Shop Owner";
+            }
+        }
 
 
-function showLogin(){
-    document.getElementById("signupPage").style.display = "none";
-    document.getElementById("loginPage").style.display = "block";
-    document.getElementById("signupMessage").textContent = "";
-}
+        function showSignup() {
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("signupPage").style.display = "block";
+            document.getElementById("loginMessage").textContent = "";
+        }
 
 
-// LOGIN FUNCTION
-function login(event){
-    event.preventDefault();
-    
-    const emailInput = document.querySelector('#loginPage input[type="email"]').value.trim();
-    const passwordInput = document.getElementById('loginPassword').value;
-    const msg = document.getElementById('loginMessage');
+        function showLogin() {
+            document.getElementById("signupPage").style.display = "none";
+            document.getElementById("loginPage").style.display = "block";
+            document.getElementById("signupMessage").textContent = "";
+        }
 
-    if(!emailInput || !passwordInput){
-        msg.style.color = '#a44747';
-        msg.textContent = 'Please enter both email and password.';
-        return;
-    }
 
-    // IF SHOP OWNER ROLE IS SELECTED
-    if(selectedRole === "owner") {
-        // Validate Shop Owner Credentials
-        if(emailInput.toLowerCase() === DEMO_OWNER_EMAIL.toLowerCase() && passwordInput === DEMO_OWNER_PASS) {
-            msg.style.color = '#1e5134';
-            msg.textContent = 'Owner login successful! Opening Dashboard...';
-            
+        // LOGIN FUNCTION
+        function login(event) {
+            event.preventDefault();
+
+            const emailInput = document.querySelector('#loginPage input[type="email"]').value.trim();
+            const passwordInput = document.getElementById('loginPassword').value;
+            const msg = document.getElementById('loginMessage');
+
+            if (!emailInput || !passwordInput) {
+                msg.style.color = '#a44747';
+                msg.textContent = 'Please enter both email and password.';
+                return;
+            }
+
+            // IF SHOP OWNER ROLE IS SELECTED
+            if (selectedRole === "owner") {
+                // Validate Shop Owner Credentials
+                if (emailInput.toLowerCase() === DEMO_OWNER_EMAIL.toLowerCase() && passwordInput === DEMO_OWNER_PASS) {
+                    msg.style.color = '#1e5134';
+                    msg.textContent = 'Owner login successful! Opening Dashboard...';
+
+                    try {
+                        localStorage.setItem('userEmail', emailInput);
+                        localStorage.setItem('userRole', 'owner');
+                    } catch (e) { }
+
+                    // Redirect Owner to admin.html
+                    setTimeout(() => {
+                        window.location.href = '../admin/admin.html';
+                    }, 700);
+                } else {
+                    msg.style.color = '#a44747';
+                    msg.textContent = 'Invalid Owner Email or Password! (Demo: owner@arveli.com / admin123)';
+                }
+            }
+            // IF CUSTOMER ROLE IS SELECTED
+            else {
+
+                msg.style.color = '#1e5134';
+                msg.textContent = 'Login successful! Redirecting to shop...';
+
+                try {
+                    localStorage.setItem('userEmail', emailInput);
+                    localStorage.setItem('userRole', 'customer');
+                } catch (e) { }
+
+                setTimeout(() => {
+                    window.location.href = '../home/index.html';
+                }, 700);
+            }
+        }
+
+
+        function signup(event) {
+            event.preventDefault();
+
+            const name = document.querySelector('#signupPage input[type="text"]').value.trim();
+            const email = document.querySelector('#signupPage input[type="email"]').value.trim();
+            const password = document.getElementById("signupPassword").value;
+            const confirm = document.getElementById("confirmPassword").value;
+            const message = document.getElementById("signupMessage");
+
+            if (password !== confirm) {
+                message.style.color = "#a44747";
+                message.textContent = "Passwords do not match.";
+                return;
+            }
+
+
+            message.style.color = "#1e5134";
+            message.textContent = "Account created successfully! Redirecting...";
+
             try {
-                localStorage.setItem('userEmail', emailInput);
-                localStorage.setItem('userRole', 'owner');
-            } catch(e){}
+                localStorage.setItem('userName', name);
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userRole', selectedRole);
+            } catch (e) { }
 
-            // Redirect Owner to admin.html
             setTimeout(() => {
-                window.location.href = 'admin.html';
+                if (selectedRole === "owner") {
+                    window.location.href = '../admin/admin.html';
+                } else {
+                    window.location.href = '../home/index.html';
+                }
             }, 700);
-        } else {
-            msg.style.color = '#a44747';
-            msg.textContent = 'Invalid Owner Email or Password! (Demo: owner@arveli.com / admin123)';
         }
-    } 
-    // IF CUSTOMER ROLE IS SELECTED
-    else {
 
-        msg.style.color = '#1e5134';
-        msg.textContent = 'Login successful! Redirecting to shop...';
-
-        try {
-            localStorage.setItem('userEmail', emailInput);
-            localStorage.setItem('userRole', 'customer');
-        } catch(e){}
-
-        setTimeout(() => {
-            window.location.href = 'index.html';
-        }, 700);
-    }
-}
-
-
-function signup(event){
-    event.preventDefault();
-
-    const name = document.querySelector('#signupPage input[type="text"]').value.trim();
-    const email = document.querySelector('#signupPage input[type="email"]').value.trim();
-    const password = document.getElementById("signupPassword").value;
-    const confirm = document.getElementById("confirmPassword").value;
-    const message = document.getElementById("signupMessage");
-
-    if(password !== confirm){
-        message.style.color = "#a44747";
-        message.textContent = "Passwords do not match.";
-        return;
-    }
-
-
-    message.style.color = "#1e5134";
-    message.textContent = "Account created successfully! Redirecting...";
-
-    try {
-        localStorage.setItem('userName', name);
-        localStorage.setItem('userEmail', email);
-        localStorage.setItem('userRole', selectedRole);
-    } catch(e){}
-
-    setTimeout(() => {
-        if(selectedRole === "owner") {
-            window.location.href = 'admin.html';
-        } else {
-            window.location.href = 'index.html';
-        }
-    }, 700);
-}
-
+    </script>
 </script>
 
 
