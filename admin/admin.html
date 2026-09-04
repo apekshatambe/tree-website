@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARVELI — Owner & Admin Dashboard</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Custom Admin CSS -->
     <link rel="stylesheet" href="admin.css">
 </head>
+
 <body>
 
     <div class="admin-container">
@@ -24,7 +27,6 @@
             <!-- Brand Logo Header -->
             <div class="sidebar-brand">
                 <a href="admin.html" class="brand-logo-box">
-                    <!-- logo: tre1.png -->
                     <img src="../images/tre1.png" alt="ARVELI Logo" class="brand-logo-img">
                 </a>
                 <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar">&times;</button>
@@ -33,53 +35,123 @@
             <!-- Navigation Links -->
             <nav class="sidebar-menu">
                 <p class="menu-label">Main Menu</p>
-                
-                <a href="admin.html" class="menu-item active">
-                    <span class="menu-icon">📊</span>
+
+                <a href="admin.html" class="menu-item active" onclick="window.location.href='admin.html';">
+                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 64 64">
+                            <rect x="7" y="7" width="50" height="50" rx="8" fill="#EAF4EE" />
+                            <rect x="15" y="35" width="7" height="14" rx="2" fill="#74C69D" />
+                            <rect x="27" y="27" width="7" height="22" rx="2" fill="#52B788" />
+                            <rect x="39" y="19" width="7" height="30" rx="2" fill="#2D6A4F" />
+                            <path d="M14 31l12-7 10 3 14-13" fill="none" stroke="#F4C95D" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M46 14h4v4" fill="none" stroke="#F4C95D" stroke-width="3" stroke-linecap="round" />
+                        </svg></span>
                     <span class="menu-text">Dashboard</span>
                 </a>
 
-                <a href="#" class="menu-item">
-                    <span class="menu-icon">🪴</span>
+                <!-- PRODUCTS LINK: Force navigation to product.html -->
+                <a href="product.html" class="menu-item">
+                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 64 64">
+                            <path d="M18 38h28l-4 20H22z" fill="#C47A4A" />
+                            <path d="M16 36h32v6H16z" rx="2" fill="#A85D35" />
+                            <path d="M32 38V20" stroke="#2D6A4F" stroke-width="4" stroke-linecap="round" />
+                            <path d="M31 27C21 27 16 21 18 15c9 0 14 4 13 12z" fill="#52B788" />
+                            <path d="M33 24C42 24 48 18 46 12c-9 0-14 5-13 12z" fill="#40916C" />
+                            <path d="M31 19C25 18 22 13 24 8c6 1 9 5 7 11z" fill="#74C69D" />
+                        </svg></span>
                     <span class="menu-text">Products</span>
                 </a>
 
                 <a href="#" class="menu-item">
-                    <span class="menu-icon">📦</span>
+                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 64 64">
+                            <path d="M10 20L32 9l22 11v25L32 56 10 45z" fill="#E9B44C" />
+                            <path d="M32 32l22-12v25L32 56z" fill="#D99A2B" />
+                            <path d="M10 20l22 12v24L10 45z" fill="#F2C866" />
+                            <path d="M28 11l8 4v20l-8-4z" fill="#FFF1C1" />
+                            <path d="M10 20l22 12 22-12" fill="none" stroke="#B57920" stroke-width="2" />
+                        </svg></span>
                     <span class="menu-text">Orders</span>
                 </a>
 
                 <a href="#" class="menu-item">
-                    <span class="menu-icon">📅</span>
+                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 64 64">
+                            <rect x="9" y="13" width="46" height="43" rx="6" fill="#FFFFFF" stroke="#5DADE2"
+                                stroke-width="3" />
+                            <path d="M9 25h46" stroke="#5DADE2" stroke-width="5" />
+                            <path d="M21 8v10M43 8v10" stroke="#3979A8" stroke-width="4" stroke-linecap="round" />
+                            <circle cx="20" cy="34" r="3" fill="#6C8E7B" />
+                            <circle cx="32" cy="34" r="3" fill="#6C8E7B" />
+                            <circle cx="44" cy="34" r="3" fill="#6C8E7B" />
+                            <circle cx="20" cy="45" r="3" fill="#6C8E7B" />
+                            <circle cx="32" cy="45" r="3" fill="#6C8E7B" />
+                            <circle cx="44" cy="45" r="3" fill="#F4C95D" />
+                        </svg></span>
                     <span class="menu-text">Bookings</span>
                 </a>
 
                 <a href="#" class="menu-item">
-                    <span class="menu-icon">👥</span>
+                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 64 64">
+                            <circle cx="43" cy="22" r="9" fill="#8E7CC3" />
+                            <path d="M29 48c1-10 7-16 14-16s13 6 14 16z" fill="#8E7CC3" />
+                            <circle cx="25" cy="23" r="10" fill="#6C63B5" />
+                            <path d="M7 50c1-11 8-18 18-18s17 7 18 18z" fill="#6C63B5" />
+                            <circle cx="22" cy="20" r="3" fill="#A9A1E8" />
+                        </svg></span>
                     <span class="menu-text">Customers</span>
                 </a>
 
                 <a href="#" class="menu-item">
-                    <span class="menu-icon">🏷️</span>
+                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 64 64">
+                            <path d="M8 10 H35 L56 31 L32 55 L8 32 Z" fill="#F4C95D" />
+                            <path d="M12 14H33L50 31L32 49L12 30Z" fill="#FFD86B" />
+                            <circle cx="22" cy="22" r="5" fill="#FFF8E1" />
+                            <circle cx="22" cy="22" r="2" fill="#D9A441" />
+                        </svg></span>
                     <span class="menu-text">Categories</span>
                 </a>
 
                 <p class="menu-label">System</p>
 
                 <a href="#" class="menu-item">
-                    <span class="menu-icon">⚙️</span>
+                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 64 64">
+                            <path
+                                d="M27 8h10l2 7a19 19 0 0 1 5 3l7-2 5 9-5 5a19 19 0 0 1 0 6l5 5-5 9-7-2a19 19 0 0 1-5 3l-2 7H27l-2-7a19 19 0 0 1-5-3l-7 2-5-9 5-5a19 19 0 0 1 0-6l-5-5 5-9 7 2a19 19 0 0 1 5-3z"
+                                fill="#6C8E7B" />
+                            <circle cx="32" cy="32" r="9" fill="#F7F3EA" />
+                            <circle cx="32" cy="32" r="4" fill="#6C8E7B" />
+                        </svg></span>
                     <span class="menu-text">Settings</span>
                 </a>
 
                 <a href="../home/index.html" class="menu-item text-link" target="_blank">
-                    <span class="menu-icon">🌐</span>
+                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="24" fill="#5DADE2" />
+                            <path d="M8 32h48M32 8c7 7 10 15 10 24s-3 17-10 24M32 8c-7 7-10 15-10 24s3 17 10 24"
+                                fill="none" stroke="#EAF6FF" stroke-width="3" />
+                            <path d="M13 20c6 4 12 5 19 5s13-1 19-5M13 44c6-4 12-5 19-5s13 1 19 5" fill="none"
+                                stroke="#EAF6FF" stroke-width="2.5" />
+                        </svg></span>
                     <span class="menu-text">View Customer Site</span>
                 </a>
             </nav>
 
             <!-- Sidebar Owner Profile Footer -->
             <div class="sidebar-user">
-                <div class="user-avatar">👨‍🌾</div>
+                <div class="user-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                        viewBox="0 0 64 64">
+                        <circle cx="32" cy="32" r="30" fill="#E8F3EC" />
+                        <circle cx="32" cy="23" r="10" fill="#F2C6A0" />
+                        <path d="M16 54 C17 43 23 37 32 37 C41 37 47 43 48 54 Z" fill="#4F8A5B" />
+                        <path d="M25 40 C27 42 29 43 32 43 C35 43 37 42 39 40" fill="none" stroke="#74C69D" stroke-width="3" stroke-linecap="round" />
+                    </svg></div>
                 <div class="user-info">
                     <span class="user-name">Owner</span>
                     <span class="user-role">Nursery Admin</span>
@@ -89,7 +161,6 @@
 
         <!-- Sidebar Mobile Overlay -->
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
 
         <main class="admin-main">
 
@@ -109,10 +180,14 @@
 
                 <div class="header-actions">
                     <div class="header-search">
-                        <span class="search-icon">🔍</span>
+                        <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none">
+                                <circle cx="10.5" cy="10.5" r="6.5" stroke="#2D6A4F" stroke-width="2" />
+                                <path d="M16 16L21 21" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" />
+                            </svg></span>
                         <input type="text" placeholder="Search orders, plants...">
                     </div>
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="window.location.href='product.html';">
                         <span>+ Add Plant</span>
                     </button>
                 </div>
@@ -123,7 +198,15 @@
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-title">Total Products</span>
-                        <span class="stat-icon-bg green">🪴</span>
+                        <span class="stat-icon-bg green"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 64 64">
+                                <path d="M18 38h28l-4 20H22z" fill="#C47A4A" />
+                                <path d="M16 36h32v6H16z" rx="2" fill="#A85D35" />
+                                <path d="M32 38V20" stroke="#2D6A4F" stroke-width="4" stroke-linecap="round" />
+                                <path d="M31 27C21 27 16 21 18 15c9 0 14 4 13 12z" fill="#52B788" />
+                                <path d="M33 24C42 24 48 18 46 12c-9 0-14 5-13 12z" fill="#40916C" />
+                                <path d="M31 19C25 18 22 13 24 8c6 1 9 5 7 11z" fill="#74C69D" />
+                            </svg></span>
                     </div>
                     <h2 class="stat-value">6</h2>
                     <span class="stat-trend trend-up">↑ 4 New this week</span>
@@ -133,7 +216,14 @@
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-title">Total Orders</span>
-                        <span class="stat-icon-bg blue">📦</span>
+                        <span class="stat-icon-bg blue"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 64 64">
+                                <path d="M10 20L32 9l22 11v25L32 56 10 45z" fill="#E9B44C" />
+                                <path d="M32 32l22-12v25L32 56z" fill="#D99A2B" />
+                                <path d="M10 20l22 12v24L10 45z" fill="#F2C866" />
+                                <path d="M28 11l8 4v20l-8-4z" fill="#FFF1C1" />
+                                <path d="M10 20l22 12 22-12" fill="none" stroke="#B57920" stroke-width="2" />
+                            </svg></span>
                     </div>
                     <h2 class="stat-value">4</h2>
                     <span class="stat-trend trend-up">↑ 12% vs last month</span>
@@ -143,7 +233,16 @@
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-title">Pending Orders</span>
-                        <span class="stat-icon-bg orange">⏳</span>
+                        <span class="stat-icon-bg orange"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 64 64">
+                                <rect x="14" y="7" width="36" height="6" rx="3" fill="#F4C95D" />
+                                <rect x="14" y="51" width="36" height="6" rx="3" fill="#F4C95D" />
+                                <path d="M18 13C18 24 25 27 32 32C25 37 18 40 18 51H46C46 40 39 37 32 32C39 27 46 24 46 13Z"
+                                    fill="#EAF4FF" stroke="#D9A441" stroke-width="2" />
+                                <path d="M21 16h22c0 6-5 9-11 13-6-4-11-7-11-13z" fill="#F6B73C" />
+                                <path d="M21 48c2-6 6-10 11-13 5 3 9 7 11 13z" fill="#F6B73C" />
+                                <rect x="30.5" y="28" width="3" height="9" rx="1.5" fill="#F6B73C" />
+                            </svg></span>
                     </div>
                     <h2 class="stat-value">1</h2>
                     <span class="stat-trend trend-warn">Requires Action</span>
@@ -153,7 +252,14 @@
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-title">Total Customers</span>
-                        <span class="stat-icon-bg purple">👥</span>
+                        <span class="stat-icon-bg purple"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 64 64">
+                                <circle cx="43" cy="22" r="9" fill="#8E7CC3" />
+                                <path d="M29 48c1-10 7-16 14-16s13 6 14 16z" fill="#8E7CC3" />
+                                <circle cx="25" cy="23" r="10" fill="#6C63B5" />
+                                <path d="M7 50c1-11 8-18 18-18s17 7 18 18z" fill="#6C63B5" />
+                                <circle cx="22" cy="20" r="3" fill="#A9A1E8" />
+                            </svg></span>
                     </div>
                     <h2 class="stat-value">4</h2>
                     <span class="stat-trend trend-up">↑ 18 Active Buyers</span>
@@ -163,7 +269,13 @@
                 <div class="stat-card highlight-card">
                     <div class="stat-header">
                         <span class="stat-title">Total Revenue</span>
-                        <span class="stat-icon-bg gold">💰</span>
+                        <span class="stat-icon-bg gold"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 64 64">
+                                <circle cx="32" cy="32" r="24" fill="#F4C95D" />
+                                <circle cx="32" cy="32" r="19" fill="#FFD86B" stroke="#D9A441" stroke-width="2" />
+                                <path d="M24 20h18M24 27h14M28 20c7 0 10 3 10 7s-3 7-10 7l11 10" fill="none"
+                                    stroke="#9A6B00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
                     </div>
                     <h2 class="stat-value">₹2,046</h2>
                     <span class="stat-trend trend-up">↑ ₹12,400 this month</span>
@@ -178,7 +290,7 @@
                     </div>
                     <button class="btn btn-sm btn-outline">View All</button>
                 </div>
-                
+
                 <div class="table-responsive">
                     <table class="admin-table">
                         <thead>
@@ -229,4 +341,5 @@
 
     <script src="admin.js"></script>
 </body>
+
 </html>

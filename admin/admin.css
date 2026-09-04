@@ -1,4 +1,9 @@
+/* ==========================================================================
+   PLANT BOOKING SYSTEM — ARVELI CLEAN ADMIN STYLESHEET
+   Contains ONLY the CSS used in admin.html and product.html
+   ========================================================================== */
 
+/* 1. RESET & BASE SETUP */
 * {
     margin: 0;
     padding: 0;
@@ -30,6 +35,7 @@ input, select, textarea {
     outline: none;
 }
 
+/* 2. MAIN CONTAINER & SIDEBAR */
 .admin-container {
     display: flex;
     min-height: 100vh;
@@ -57,7 +63,6 @@ input, select, textarea {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Brand Logo Container */
 .brand-logo-box {
     background-color: #ffffff;
     padding: 10px 18px;
@@ -122,6 +127,11 @@ input, select, textarea {
     font-weight: 700;
 }
 
+.menu-item.text-link {
+    margin-top: 10px;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
 .sidebar-user {
     padding: 16px 20px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -157,7 +167,6 @@ input, select, textarea {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Mobile Overlay */
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -168,6 +177,8 @@ input, select, textarea {
     background: rgba(0, 0, 0, 0.5);
     z-index: 90;
 }
+
+/* 3. MAIN CONTENT & HEADER */
 .admin-main {
     flex: 1;
     margin-left: 260px;
@@ -236,6 +247,8 @@ input, select, textarea {
     left: 12px;
     font-size: 0.9rem;
     color: #64748b;
+    display: flex;
+    align-items: center;
 }
 
 .header-search input {
@@ -254,7 +267,7 @@ input, select, textarea {
     box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
 }
 
-/* Button Component */
+/* 4. BUTTON COMPONENTS */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -288,11 +301,21 @@ input, select, textarea {
     border-color: #cbd5e1;
 }
 
+.btn-danger {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
 .btn-sm {
     padding: 6px 12px;
     font-size: 0.8rem;
 }
 
+/* 5. STATS GRID & CARDS */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -361,6 +384,7 @@ input, select, textarea {
 .trend-up { color: #16a34a; }
 .trend-warn { color: #d97706; }
 
+/* 6. CARDS & LAYOUT */
 .card {
     background-color: #ffffff;
     border-radius: 14px;
@@ -391,7 +415,7 @@ input, select, textarea {
     align-items: center;
 }
 
-/* Table Component */
+/* 7. TABLE COMPONENT */
 .table-responsive {
     width: 100%;
     overflow-x: auto;
@@ -425,7 +449,14 @@ input, select, textarea {
     background-color: #f8faf8;
 }
 
-/* Status Badges */
+.tbl-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* 8. STATUS & STOCK BADGES */
 .badge {
     display: inline-block;
     padding: 4px 12px;
@@ -454,8 +485,133 @@ input, select, textarea {
     color: #991b1b;
 }
 
-   /* 6. RESPONSIVE DESIGN (MOBILE & TABLET) */
+.badge-in-stock {
+    background-color: #d1fae5;
+    color: #065f46;
+}
 
+.badge-low-stock {
+    background-color: #ffedd5;
+    color: #c2410c;
+}
+
+.badge-out-stock {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* 9. MODAL POPUP & FORM STYLES */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-container {
+    background-color: #ffffff;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 540px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    padding: 24px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 14px;
+}
+
+.modal-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1b4332;
+}
+
+.modal-close {
+    font-size: 1.5rem;
+    color: #64748b;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #1b4332;
+    box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 16px;
+}
+
+/* 10. RESPONSIVE DESIGN (MOBILE & TABLET) */
 @media (max-width: 900px) {
     .admin-sidebar {
         transform: translateX(-100%);

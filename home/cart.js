@@ -18,20 +18,28 @@ function addToCart(product, qty) {
   const amount = Math.max(1, Number(qty) || 1);
   const items = getCart();
   const existing = items.find((item) => item.id === product.id);
+  const image = normalizeImagePath(product.image);
 
   if (existing) {
     existing.qty += amount;
+    if (image) existing.image = image;
   } else {
     items.push({
       id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image,
+      image: image,
       qty: amount
     });
   }
 
   saveCart(items);
+}
+
+function normalizeImagePath(path) {
+  if (!path) return "";
+  const file = String(path).split("/").pop();
+  return "../images/" + file;
 }
 
 function removeFromCart(id) {
