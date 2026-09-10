@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Arveli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="buy.css" />
+</head>
+<body>
+  <div class="checkout-topbar">Free delivery on orders above ₹499 · Safe & secure checkout</div>
+
+  <header class="checkout-header">
+    <a class="checkout-brand" href="../home/index.html" aria-label="Arveli home">
+      <img src="../images/tre1.png" alt="Arveli logo" />
+    </a>
+    <div class="checkout-secure">Secure Checkout</div>
+  </header>
+
+  <main class="checkout-main">
+    <div class="checkout-form-wrap" id="checkout-form-wrap">
+      <h1 class="checkout-title">Checkout</h1>
+      <p class="checkout-subtitle">Enter your details to complete your plant order.</p>
+
+      <div class="checkout-grid">
+        <section class="checkout-card">
+          <h2>Contact & delivery</h2>
+          <form id="checkout-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="full-name">Full name</label>
+                <input id="full-name" name="fullName" type="text" required placeholder="Your full name" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" required placeholder="10-digit mobile number" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" rows="3" required placeholder="House no., street, landmark"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" required placeholder="City" />
+              </div>
+              <div class="form-group">
+                <label for="pincode">Pincode</label>
+                <input id="pincode" name="pincode" type="text" required placeholder="6-digit pincode" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="state">State</label>
+              <select id="state" name="state" required>
+                <option value="">Select state</option>
+                <option>Maharashtra</option>
+                <option>Karnataka</option>
+                <option>Delhi</option>
+                <option>Gujarat</option>
+                <option>Tamil Nadu</option>
+                <option>West Bengal</option>
+                <option>Rajasthan</option>
+                <option>Uttar Pradesh</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <h2 style="margin-top: 8px;">Payment</h2>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cod" checked />
+                <span>Cash on Delivery</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="upi" />
+                <span>UPI</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="card" />
+                <span>Credit / Debit Card</span>
+              </label>
+            </div>
+          </form>
+        </section>
+
+        <aside class="checkout-card">
+          <h2>Order summary</h2>
+          <ul class="summary-list" id="summary-list"></ul>
+          <p class="summary-empty" id="summary-empty" hidden>Your cart is empty.</p>
+
+          <div class="summary-totals" id="summary-totals" hidden>
+            <div class="summary-line">
+              <span>Subtotal</span>
+              <span id="summary-subtotal">₹0</span>
+            </div>
+            <div class="summary-line">
+              <span>Delivery</span>
+              <span id="summary-delivery">₹0</span>
+            </div>
+            <p class="free-ship" id="free-ship" hidden>Free delivery unlocked</p>
+            <div class="summary-total">
+              <span>Total</span>
+              <span id="summary-total">₹0</span>
+            </div>
+          </div>
+
+          <button class="place-order-btn" id="place-order-btn" type="submit" form="checkout-form">
+            Place order
+          </button>
+          <a class="back-link" href="../plantshop/plantshop.html">← Return to shop</a>
+        </aside>
+      </div>
+    </div>
+
+    <div class="checkout-success checkout-card" id="checkout-success">
+      <h2>Order placed</h2>
+      <p id="success-message">Thank you! Your plants are on the way.</p>
+      <a class="place-order-btn" href="../home/index.html" style="display: inline-block; text-decoration: none; width: auto; padding: 12px 24px;">
+        Back to home
+      </a>
+    </div>
+  </main>
+
+  <script src="buy.js"></script>
+</body>
+</html>

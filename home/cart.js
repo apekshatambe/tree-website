@@ -14,6 +14,13 @@ function getCartCount() {
   return getCart().reduce((total, item) => total + (item.qty || 0), 0);
 }
 
+function getCartTotal(items) {
+  return items.reduce(
+    (total, item) => total + Number(item.price || 0) * Number(item.qty || 0),
+    0
+  );
+}
+
 function addToCart(product, qty) {
   const amount = Math.max(1, Number(qty) || 1);
   const items = getCart();
@@ -77,16 +84,49 @@ function renderCartPanel() {
 
   if (!list || !empty) return;
 
+  let footer = document.querySelector(".cart-footer");
+  let total = document.querySelector(".cart-total");
+  let buyBtn = document.querySelector(".cart-buy-btn");
+
+  if (!footer) {
+    footer = document.createElement("div");
+    footer.className = "cart-footer";
+
+    total = document.createElement("p");
+    total.className = "cart-total";
+
+    buyBtn = document.createElement("button");
+    buyBtn.type = "button";
+    buyBtn.className = "cart-buy-btn";
+    buyBtn.textContent = "Proceed to buy";
+    buyBtn.addEventListener("click", () => {
+      window.location.href = "../checkout/buy.html";
+    });
+    buyBtn.dataset.bound = "1";
+
+    footer.appendChild(total);
+    footer.appendChild(buyBtn);
+    list.parentNode.appendChild(footer);
+  } else if (buyBtn && !buyBtn.dataset.bound) {
+    buyBtn.dataset.bound = "1";
+    buyBtn.addEventListener("click", () => {
+      window.location.href = "../checkout/buy.html";
+    });
+  }
+
   list.innerHTML = "";
 
   if (items.length === 0) {
     empty.hidden = false;
     list.hidden = true;
+    footer.hidden = true;
     return;
   }
 
   empty.hidden = true;
   list.hidden = false;
+  footer.hidden = false;
+  total.textContent = "Total: ₹" + getCartTotal(items);
 
   items.forEach((item) => {
     const li = document.createElement("li");
@@ -102,8 +142,11 @@ function renderCartPanel() {
       item.name +
       "</span>" +
       (item.price
-        ? '<span class="cart-item-price">₹' + item.price + "</span>"
+        ? '<span class="cart-item-price">₹' + item.price + " each</span>"
         : "") +
+      '<span class="cart-item-subtotal">Item total: ₹' +
+      Number(item.price || 0) * Number(item.qty || 0) +
+      "</span>" +
       '<div class="cart-item-qty">' +
       '<button type="button" class="cart-qty-minus" data-id="' +
       item.id +
