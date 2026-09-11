@@ -84,6 +84,19 @@ function renderCartPanel() {
 
   if (!list || !empty) return;
 
+  list.innerHTML = "";
+
+  if (items.length === 0) {
+    empty.hidden = false;
+    list.hidden = true;
+    const footer = document.querySelector(".cart-footer");
+    if (footer) footer.remove();
+    return;
+  }
+
+  empty.hidden = true;
+  list.hidden = false;
+
   let footer = document.querySelector(".cart-footer");
   let total = document.querySelector(".cart-total");
   let buyBtn = document.querySelector(".cart-buy-btn");
@@ -102,30 +115,12 @@ function renderCartPanel() {
     buyBtn.addEventListener("click", () => {
       window.location.href = "../checkout/buy.html";
     });
-    buyBtn.dataset.bound = "1";
 
     footer.appendChild(total);
     footer.appendChild(buyBtn);
     list.parentNode.appendChild(footer);
-  } else if (buyBtn && !buyBtn.dataset.bound) {
-    buyBtn.dataset.bound = "1";
-    buyBtn.addEventListener("click", () => {
-      window.location.href = "../checkout/buy.html";
-    });
   }
 
-  list.innerHTML = "";
-
-  if (items.length === 0) {
-    empty.hidden = false;
-    list.hidden = true;
-    footer.hidden = true;
-    return;
-  }
-
-  empty.hidden = true;
-  list.hidden = false;
-  footer.hidden = false;
   total.textContent = "Total: ₹" + getCartTotal(items);
 
   items.forEach((item) => {
