@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plant Shop</title>
+  <title>Seed Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
-  <link rel="stylesheet" href="plantshop.css" />
+  <link rel="stylesheet" href="../plantshop/plantshop.css" />
 </head>
 <body>
-  <!-- plantshop page -->
+  <!-- seedshop page -->
   <nav class="navbar">
     <div class="logof">
       <img src="../images/white.png" alt="Logo" width="100" height="50">
     </div>
     <ul class="nav-links">
       <li><a href="../home/index.html">Home</a></li>
-      <li><a href="plantshop.html">Shop</a></li>
+      <li><a href="../plantshop/plantshop.html">Shop</a></li>
       <li><a href="#">Plant Finder</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
     <div class="search-container">
       <label for="plant-search" class="material-symbols-outlined" aria-hidden="true">search</label>
-      <input id="plant-search" type="search" placeholder="Search plants..." aria-label="Search plants" autocomplete="off" />
+      <input id="plant-search" type="search" placeholder="Search seeds..." aria-label="Search seeds" autocomplete="off" />
     </div>
     <div class="access-link">
     
@@ -104,11 +104,8 @@
     </div>
   </aside>
 
-                        <!--search navbar-->
-                      <!--search navbar end-->
-
-  <section class="products-section" id="plants">
-    <h1>Plants</h1>
+  <section class="products-section" id="seeds">
+    <h1>Seeds</h1>
     <div class="heading-line"></div>
 
     <div class="shop-actions">
@@ -119,17 +116,17 @@
         Filter
         <span class="filter-active-badge" hidden>0</span>
       </button>
-      <p class="filter-results-count" aria-live="polite">Showing all plants</p>
+      <p class="filter-results-count" aria-live="polite">Showing all seeds</p>
     </div>
 
     <div class="shop-toolbar" id="filter-panel" hidden>
       <div class="filter-group">
         <label for="filter-category">Category</label>
         <select id="filter-category" aria-label="Filter by category">
-          <option value="all">All plants</option>
-          <option value="indoor">Indoor</option>
-          <option value="outdoor">Outdoor</option>
-          <option value="air-purifying">Air Purifying</option>
+          <option value="all">All seeds</option>
+          <option value="vegetable">Vegetable</option>
+          <option value="herb">Herb</option>
+          <option value="flower">Flower</option>
         </select>
       </div>
       <div class="filter-group">
@@ -151,7 +148,7 @@
       </div>
       <div class="filter-group">
         <label for="filter-sort">Sort by</label>
-        <select id="filter-sort" aria-label="Sort plants">
+        <select id="filter-sort" aria-label="Sort seeds">
           <option value="default">Featured</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
@@ -163,88 +160,77 @@
 
     <div class="products-grid" id="products-grid">
 
-      <div class="product-card" data-id="snake-plant" data-name="SNAKE PLANT" data-price="158" data-image="../images/snake-plant.jpg" data-category="indoor air-purifying" data-care="easy" data-light="low">
+      <div class="product-card" data-id="cherry-tomato" data-name="CHERRY TOMATO" data-price="49" data-image="../images/seedimg/cherry-tomato.png" data-category="vegetable" data-care="easy" data-light="bright">
         <div class="product-image">
           <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </button>
-          <a href="../productpage/snakelant.html">
-            <img src="../images/snake-plant.jpg" alt="Snake plant">
-          </a>
+          <img src="../images/seedimg/cherry-tomato.png" alt="Cherry tomato seeds">
         </div>
-        <span class="product-tag">Indoor · Easy care</span>
-        <h3>SNAKE PLANT</h3>
+        <span class="product-tag">Vegetable · Easy care</span>
+        <h3>CHERRY TOMATO</h3>
         <div class="price">
-          <h5 class="old_price">₹250</h5>
-          <h4 class="new-price">₹158</h4>
+          <h5 class="old_price">₹69</h5>
+          <h4 class="new-price">₹49</h4>
         </div>
       </div>
 
-      <div class="product-card" data-id="areca-palm" data-name="ARECA PALM" data-price="158" data-image="../images/areca-palm.jpg" data-category="indoor air-purifying" data-care="medium" data-light="bright">
+      <div class="product-card" data-id="basil" data-name="BASIL" data-price="39" data-image="../images/seedimg/basil.png" data-category="herb" data-care="easy" data-light="low">
         <div class="product-image">
           <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </button>
-          <a href="../productpage/areca-palm.html">
-            <img src="../images/areca-palm.jpg" alt="Areca palm">
-          </a>
+          <img src="../images/seedimg/basil.png" alt="Basil seeds">
         </div>
-        <span class="product-tag">Indoor · Bright light</span>
-        <h3>ARECA PALM</h3>
+        <span class="product-tag">Herb · Easy care</span>
+        <h3>BASIL</h3>
         <div class="price">
-          <h5 class="old_price">₹250</h5>
-          <h4 class="new-price">₹158</h4>
+          <h5 class="old_price">₹55</h5>
+          <h4 class="new-price">₹39</h4>
         </div>
       </div>
 
-      <div class="product-card" data-id="peace-lily" data-name="PEACE LILY" data-price="158" data-image="../images/peace-lily.jpg" data-category="indoor air-purifying" data-care="easy" data-light="low">
+      <div class="product-card" data-id="sunflower" data-name="SUNFLOWER" data-price="59" data-image="../images/seedimg/sunflower.png" data-category="flower" data-care="easy" data-light="bright">
         <div class="product-image">
           <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </button>
-          <a href="../productpage/peace-lily.html">
-            <img src="../images/peace-lily.jpg" alt="Peace lily">
-          </a>
+          <img src="../images/seedimg/sunflower.png" alt="Sunflower seeds">
         </div>
-        <span class="product-tag">Indoor · Low light</span>
-        <h3>PEACE LILY</h3>
+        <span class="product-tag">Flower · Easy care</span>
+        <h3>SUNFLOWER</h3>
         <div class="price">
-          <h5 class="old_price">₹250</h5>
-          <h4 class="new-price">₹158</h4>
+          <h5 class="old_price">₹79</h5>
+          <h4 class="new-price">₹59</h4>
         </div>
       </div>
 
-      <div class="product-card" data-id="pothos" data-name="POTHOS" data-price="99" data-image="../images/pothos.jpg" data-category="indoor air-purifying" data-care="easy" data-light="medium">
+      <div class="product-card" data-id="marigold" data-name="MARIGOLD" data-price="45" data-image="../images/seedimg/marigold.png" data-category="flower" data-care="easy" data-light="bright">
         <div class="product-image">
           <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </button>
-          <a href="../productpage/pothos.html">
-            <img src="../images/pothos.jpg" alt="Pothos">
-          </a>
+          <img src="../images/seedimg/marigold.png" alt="Marigold seeds">
         </div>
-        <span class="product-tag">Indoor · Easy care</span>
-        <h3>POTHOS</h3>
+        <span class="product-tag">Flower · Easy care</span>
+        <h3>MARIGOLD</h3>
         <div class="price">
-          <h5 class="old_price">₹180</h5>
-          <h4 class="new-price">₹99</h4>
+          <h5 class="old_price">₹65</h5>
+          <h4 class="new-price">₹45</h4>
         </div>
       </div>
-
-      
-     
 
     </div>
 
-    <p class="no-results" hidden>No plants match your filters. Try adjusting your selection.</p>
+    <p class="no-results" hidden>No seeds match your filters. Try adjusting your selection.</p>
   </section>
 
   <footer class="footers">
@@ -297,6 +283,6 @@
   </footer>
   <script src="../home/wishlist.js"></script>
   <script src="../home/cart.js"></script>
-  <script src="plantshop.js"></script>
+  <script src="seedshop.js"></script>
 </body>
 </html>
