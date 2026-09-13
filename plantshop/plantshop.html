@@ -7,6 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
   <link rel="stylesheet" href="plantshop.css" />
+  <style>
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;align-items:start}
+    .product-card{display:block;max-width:280px}
+    .product-image{height:240px}
+    @media (max-width:600px){.products-grid{grid-template-columns:1fr}.product-card{max-width:none}.product-image{height:300px}}
+  </style>
 </head>
 <body>
   <!-- plantshop page -->
@@ -16,8 +22,8 @@
     </div>
     <ul class="nav-links">
       <li><a href="../home/index.html">Home</a></li>
-      <li><a href="plantshop.html">Plants</a></li>
-      <li><a href="../seedshop/seedshop.html">Seeds</a></li>
+      <li><a href="plantshop.html">Shop</a></li>
+      <li><a href="#">Plant Finder</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
     <div class="search-container">
