@@ -1,0 +1,19 @@
+/* Brown navbar & footer for tool shop and soil shop */
+.navbar {
+  background: #5c3d2e;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(60, 40, 30, 0.2);
+}
+
+.nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #faf5ea;
+}
+
+.footers {
+  background: #914018;
+}
+
+.footers hr {
+  border-top-color: rgba(249, 246, 238, 0.22);
+}

@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plant Booking System</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Ensure products display side-by-side in a responsive grid */
-    .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;align-items:start}
     .product-card{display:block}
     .product-image{height:240px}
-    @media (max-width:600px){.products-grid{grid-template-columns:1fr}.product-image{height:300px}}
+    #new-arrivals .product-image{height:320px}
+    #products .category-image img{border-radius:50%}
+    #products .category-card h3{font-size:17px;margin:0}
     .navbar {
       height: 78px;
       display: flex;
@@ -175,67 +175,49 @@
         <h1>Our Products</h1>
         <div class="heading-line"></div>
 
+        <!-- Categories -->
+        <div class="products-grid category-grid">
 
-        
-
-
-        <!-- Products -->
-        <div class="products-grid">
-
-            <!-- Product 1 -->
-            <div class="product-card">
-
-                <div class="product-image">
-                  <a href="../plantshop/plantshop.html">
-                    <img src="../images/plant.jpeg" alt="Plants">
-                  </a>
+            <a href="../plantshop/plantshop.html" class="product-card category-card">
+                <div class="product-image category-image">
+                    <img src="../images/plants.jpg" alt="Plants">
                 </div>
-
                 <h3>PLANTS</h3>
-
-            </div>
-
-
-            <!-- Product 2 -->
-            <a href="../seedshop/seedshop.html" class="product-card">
-
-                <div class="product-image">
-                    <img src="../images/seed.jpeg" alt="Seeds">
-                </div>
-
-                <h3>SEEDS</h3>
-
             </a>
 
+            <a href="../seedshop/seedshop.html" class="product-card category-card">
+                <div class="product-image category-image">
+                    <img src="../images/seeed.jpg" alt="Seeds">
+                </div>
+                <h3>SEEDS</h3>
+            </a>
 
-            <!-- Product 3 -->
-            <div class="product-card">
-
-                <div class="product-image">
+            <div class="product-card category-card">
+                <div class="product-image category-image">
                     <img src="../images/tool.jpeg" alt="Gardening tools">
                 </div>
-
-                <h3>GARDNING TOOLS</h3>
-              
-
+                <h3>GARDENING TOOLS</h3>
             </div>
 
-
-            <!-- Product 4 -->
-            <div class="product-card">
-
-                <div class="product-image">
+            <div class="product-card category-card">
+                <div class="product-image category-image">
                     <img src="../images/soil.jpeg" alt="Soil and fertilizer">
                 </div>
-
-                <h3>SOIL&FERTILIZER</h3>
-                
-
+                <h3>SOIL &amp; FERTILIZER</h3>
             </div>
 
+            <div class="product-card category-card">
+                <div class="product-image category-image">
+                    <img src="../images/pots.jpg" alt="Pots">
+                </div>
+                <h3>POTS</h3>
+            </div>
 
-            
-
+            <div class="product-card category-card">
+                <div class="product-image category-image">
+                    <img src="../images/accesories.jpg" alt="Accessories">
+                </div>
+                <h3>ACCESSORIES</h3>
             </div>
 
         </div>
@@ -398,7 +380,45 @@
         </div>
       </div>
     </section>
+<!--about section end-->
 
+    <section class="spaces-section" id="spaces">
+      <div class="spaces-container">
+        <h1>Make your own space</h1>
+        <div class="heading-line"></div>
+        <div class="spaces-grid">
+          <a href="../plantshop/plantshop.html" class="space-card">
+            <div class="space-card__image">
+              <img src="../images/garden.jpg" alt="Garden">
+            </div>
+            <h3>Garden</h3>
+          </a>
+
+          <a href="../plantshop/plantshop.html" class="space-card">
+            <div class="space-card__image">
+              <img src="../images/balcony.jpg" alt="Balcony">
+            </div>
+            <h3>Balcony</h3>
+          </a>
+
+          <a href="../plantshop/plantshop.html" class="space-card">
+            <div class="space-card__image">
+              <img src="../images/home.jpg" alt="Home">
+            </div>
+            <h3>Home</h3>
+          </a>
+
+          <a href="../plantshop/plantshop.html" class="space-card">
+            <div class="space-card__image">
+              <img src="../images/office.jpg" alt="Office">
+            </div>
+            <h3>Office</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+<!--footer section start-->
 
   <footer class="footers">
     <div class="footer-top">

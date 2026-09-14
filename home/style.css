@@ -1,9 +1,29 @@
-body { 
+html {
+  background-color: #f8f5ee;
+}
+
+body {
   scroll-behavior: smooth;
-    margin: 0;
-    font-family: "Manrope", sans-serif;
-    background: #f8f5ee;
-    color: #1f3a2e;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background: transparent;
+  color: #1f3a2e;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #f8f5ee;
+  background-image:
+    radial-gradient(ellipse 90% 70% at 12% 8%, rgba(193, 112, 61, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 88% 92%, rgba(47, 92, 60, 0.04) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.52 0 0 0 0 0.42 0 0 0 0 0.32 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 100% 100%, 180px 180px;
+  background-blend-mode: normal, normal, multiply;
 }
 
 .navbar {
@@ -637,12 +657,14 @@ body {
 
 .footers {
     background:#023020;
-    padding: 20px 30px 30px;
+    padding: 20px 48px 30px;
     color: #F9F6EE;
     font-size: 14px;
 }
 
 .footer-top {
+    max-width: 1440px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: start;
@@ -752,12 +774,13 @@ img {
 }
 
 .hero {
-  padding: 80px 48px;
+  padding: 80px 56px 56px;
 }
 
 .hero__container {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding-left: 56px;
   display: grid;
   grid-template-columns: 1fr 1fr;   /* it divides both sides equally ig */
   align-items: center;
@@ -932,8 +955,17 @@ img {
 /* ---------- PRODUCTS SECTION ---------- */
 .products-section {
   padding: 60px 48px;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
+}
+
+#products {
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
+
+#new-arrivals {
+  padding-top: 44px;
 }
 
 .products-section h1 {
@@ -971,6 +1003,10 @@ img {
   margin-bottom: 16px;
 }
 
+#new-arrivals .product-image {
+  height: 320px;
+}
+
 .product-image img {
   width: 100%;
   height: 100%;
@@ -986,6 +1022,60 @@ img {
   font-weight: 600;
 }
 
+/* Shared grid — categories (6×2) and new arrivals (4×3) align on same 12-column tracks */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+#new-arrivals .product-card {
+  grid-column: span 3;
+}
+
+/* Category circles — Our Products only */
+#products .category-card {
+  grid-column: span 2;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+#products .category-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0 0 16px;
+  background: #e7ebe4;
+}
+
+#products .category-image img {
+  border-radius: 50%;
+}
+
+#products .category-card h3 {
+  font-size: 17px;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  #products .category-card {
+    grid-column: span 1;
+  }
+
+  #new-arrivals .product-card {
+    grid-column: span 3;
+  }
+}
+
 @media (max-width: 600px) {
   .products-section {
     padding: 40px 20px;
@@ -995,8 +1085,22 @@ img {
     font-size: 28px;
   }
 
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  #products .category-card,
+  #new-arrivals .product-card {
+    grid-column: span 1;
+  }
+
   .product-image {
     height: 300px;
+  }
+
+  #new-arrivals .product-image {
+    height: 360px;
   }
 }
 
@@ -1073,7 +1177,7 @@ color:#023020;
 /* ---------- ABOUT / LIVELY ROOM SECTION ---------- */
 .about-section {
   padding: 88px 48px;
-  background: #f8f5ee;
+  background: transparent;
 }
 
 .about-container {
@@ -1124,12 +1228,14 @@ color:#023020;
   opacity: 1 !important;
   margin: 28px 0 0;
   padding: 0;
-  font-family: "Fraunces", serif;
-  font-size: 34px;
+  font-family: "Cormorant Garamond", "Fraunces", serif;
+  font-size: 40px;
   font-weight: 500;
-  line-height: 1.25;
-  color: #C1703D;
-}
+  font-style: italic;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  color: #1f5c32;
+  }
 
 .about-doodle {
   position: absolute;
@@ -1323,7 +1429,7 @@ color:#023020;
   }
 
   .about-section .about-tagline {
-    font-size: 28px;
+    font-size: 32px;
     margin-top: 22px;
   }
 
@@ -1341,5 +1447,99 @@ color:#023020;
   .plant-hotspot:hover .plant-hotspot__tip--left,
   .plant-hotspot:focus-visible .plant-hotspot__tip--left {
     transform: translate(-50%, 0);
+  }
+}
+
+/* ---------- SHOP BY SPACE SECTION ---------- */
+.spaces-section {
+  padding: 72px 48px 88px;
+  background: rgba(240, 235, 224, 0.45);
+}
+
+.spaces-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.spaces-section h1 {
+  font-family: "Fraunces", serif;
+  font-size: 36px;
+  color: #1F3A2E;
+  margin-bottom: 12px;
+}
+
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.space-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(31, 58, 46, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.space-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(31, 58, 46, 0.12);
+}
+
+.space-card__image {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #e7ebe4;
+}
+
+.space-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.space-card:hover .space-card__image img {
+  transform: scale(1.05);
+}
+
+.space-card h3 {
+  margin: 16px 0 0;
+  padding: 0 4px 4px;
+  text-align: center;
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1F3A2E;
+}
+
+@media (max-width: 1024px) {
+  .spaces-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .spaces-section {
+    padding: 56px 20px 72px;
+  }
+
+  .spaces-section h1 {
+    font-size: 28px;
+  }
+
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .space-card__image {
+    aspect-ratio: 16 / 10;
   }
 }
