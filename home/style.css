@@ -1301,23 +1301,6 @@ color:#023020;
   outline: none;
 }
 
-.plant-hotspot__dot {
-  display: none;
-}
-
-/* Keep plant zones invisible; only tip shows on hover */
-.plant-hotspot--fiddle:hover,
-.plant-hotspot--fiddle:focus-visible,
-.plant-hotspot--snake:hover,
-.plant-hotspot--snake:focus-visible,
-.plant-hotspot--calathea:hover,
-.plant-hotspot--calathea:focus-visible,
-.plant-hotspot--pothos:hover,
-.plant-hotspot--pothos:focus-visible {
-  border-color: transparent;
-  box-shadow: none;
-}
-
 .plant-hotspot__tip {
   position: absolute;
   left: calc(100% + 12px);

@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seed Shop</title>
+  <title>Pot Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
   <link rel="stylesheet" href="../plantshop/plantshop.css" />
 </head>
 <body>
-  <!-- seedshop page -->
   <nav class="navbar">
     <div class="logof">
       <img src="../images/white.png" alt="Logo" width="100" height="50">
@@ -21,53 +20,36 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <div class="search-container">
-      <label for="plant-search" class="material-symbols-outlined" aria-hidden="true">search</label>
-      <input id="plant-search" type="search" placeholder="Search seeds..." aria-label="Search seeds" autocomplete="off" />
+      <label for="pot-search" class="material-symbols-outlined" aria-hidden="true">search</label>
+      <input id="pot-search" type="search" placeholder="Search pots..." aria-label="Search pots" autocomplete="off" />
     </div>
     <div class="access-link">
-    
-    <button class="wishlist-link" type="button" aria-label="Open wishlist">
-      <svg xmlns="http://www.w3.org/2000/svg"
-     width="24"
-     height="24"
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     stroke-width="2"
-     stroke-linecap="round"
-     stroke-linejoin="round">
-  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
-</svg>
-      <span class="wishlist-badge" hidden>0</span>
-    </button>
-    <div>
-    <a class="cart-link" href="#" aria-label="Cart">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <path d="M6 6h15l-1.5 9h-12z"/>
-        <path d="M6 6L5 3H2"/>
-        <circle cx="9" cy="20" r="1"/>
-        <circle cx="18" cy="20" r="1"/>
-      </svg>
-      <span class="cart-badge" hidden>0</span>
-    </a>
+      <button class="wishlist-link" type="button" aria-label="Open wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <span class="wishlist-badge" hidden>0</span>
+      </button>
+      <div>
+        <a class="cart-link" href="#" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M6 6h15l-1.5 9h-12z"/>
+            <path d="M6 6L5 3H2"/>
+            <circle cx="9" cy="20" r="1"/>
+            <circle cx="18" cy="20" r="1"/>
+          </svg>
+          <span class="cart-badge" hidden>0</span>
+        </a>
+      </div>
+      <div class="profile">
+        <a href="../login/login.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21c0-4.42 3.58-8 8-8s8 3.58 8 8"/>
+          </svg>
+        </a>
+      </div>
     </div>
-    <div class="profile">
-      <a href="../login/login.html">
-      <svg xmlns="http://www.w3.org/2000/svg"
-     width="24"
-     height="24"
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     stroke-width="2"
-     stroke-linecap="round"
-     stroke-linejoin="round">
-  <circle cx="12" cy="8" r="4"/>
-  <path d="M4 21c0-4.42 3.58-8 8-8s8 3.58 8 8"/>
-</svg>
-</a>
-      </div>
-      </div>
   </nav>
 
   <div class="wishlist-overlay" aria-hidden="true"></div>
@@ -104,8 +86,8 @@
     </div>
   </aside>
 
-  <section class="products-section" id="seeds">
-    <h1>Seeds</h1>
+  <section class="products-section" id="pots">
+    <h1>Pots</h1>
     <div class="heading-line"></div>
 
     <div class="shop-actions">
@@ -116,39 +98,40 @@
         Filter
         <span class="filter-active-badge" hidden>0</span>
       </button>
-      <p class="filter-results-count" aria-live="polite">Showing all seeds</p>
+      <p class="filter-results-count" aria-live="polite">Showing all pots</p>
     </div>
 
     <div class="shop-toolbar" id="filter-panel" hidden>
       <div class="filter-group">
-        <label for="filter-category">Category</label>
-        <select id="filter-category" aria-label="Filter by category">
-          <option value="all">All seeds</option>
-          <option value="vegetable">Vegetable</option>
-          <option value="herb">Herb</option>
-          <option value="flower">Flower</option>
+        <label for="filter-category">Material</label>
+        <select id="filter-category" aria-label="Filter by material">
+          <option value="all">All materials</option>
+          <option value="ceramic">Ceramic</option>
+          <option value="terracotta">Terracotta</option>
+          <option value="hanging">Hanging</option>
+          <option value="decorative">Decorative</option>
         </select>
       </div>
       <div class="filter-group">
-        <label for="filter-care">Care level</label>
-        <select id="filter-care" aria-label="Filter by care level">
-          <option value="all">Any</option>
-          <option value="easy">Easy</option>
+        <label for="filter-size">Size</label>
+        <select id="filter-size" aria-label="Filter by size">
+          <option value="all">Any size</option>
+          <option value="small">Small</option>
           <option value="medium">Medium</option>
+          <option value="large">Large</option>
         </select>
       </div>
       <div class="filter-group">
-        <label for="filter-light">Light</label>
-        <select id="filter-light" aria-label="Filter by light needs">
+        <label for="filter-use">Use</label>
+        <select id="filter-use" aria-label="Filter by use">
           <option value="all">Any</option>
-          <option value="low">Low light</option>
-          <option value="medium">Medium light</option>
-          <option value="bright">Bright light</option>
+          <option value="indoor">Indoor</option>
+          <option value="outdoor">Outdoor</option>
         </select>
       </div>
       <div class="filter-group">
         <label for="filter-sort">Sort by</label>
-        <select id="filter-sort" aria-label="Sort seeds">
+        <select id="filter-sort" aria-label="Sort pots">
           <option value="default">Featured</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
@@ -160,77 +143,111 @@
 
     <div class="products-grid" id="products-grid">
 
-      <div class="product-card" data-id="cherry-tomato" data-name="CHERRY TOMATO" data-price="49" data-image="../images/seedimg/cherry-tomato.png" data-category="vegetable" data-care="easy" data-light="bright">
+      <div class="product-card" data-id="terracotta-classic" data-name="ARVELI HANDPAINTED CLAY POTS" data-price="199" data-image="../images/pot/clay pots.jfif" data-category="terracotta" data-size="medium" data-use="outdoor">
         <div class="product-image">
           <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </button>
-          <a href="../productpage/cherry-tomato.html"><img src="../images/seedimg/cherry-tomato.png" alt="Cherry tomato seeds"></a>
+          <a href="../productpage/terracotta-classic.html"><img src="../images/pot/clay pots.jfif" alt="Terracotta classic pot"></a>
         </div>
-        <span class="product-tag">Vegetable · Easy care</span>
-        <h3>CHERRY TOMATO</h3>
+        <span class="product-tag">CLAY POT</span>
+        <h3>ARVELI HANDPAINTED CLAY POTS</h3>
         <div class="price">
-          <h5 class="old_price">₹69</h5>
-          <h4 class="new-price">₹49</h4>
+          <h5 class="old_price">₹299</h5>
+          <h4 class="new-price">₹199</h4>
         </div>
       </div>
 
-      <div class="product-card" data-id="basil" data-name="BASIL" data-price="39" data-image="../images/seedimg/basil.png" data-category="herb" data-care="easy" data-light="low">
+      <div class="product-card" data-id="white-ceramic" data-name="WHITE CERAMIC" data-price="349" data-image="../images/pot/WHITE CERAMIC.jfif" data-category="ceramic" data-size="medium" data-use="indoor">
         <div class="product-image">
           <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </button>
-          <a href="../productpage/basil.html"><img src="../images/seedimg/basil.png" alt="Basil seeds"></a>
+          <a href="../productpage/white-ceramic.html"><img src="../images/pot/WHITE CERAMIC.jfif" alt="White ceramic planter"></a>
         </div>
-        <span class="product-tag">Herb · Easy care</span>
-        <h3>BASIL</h3>
+        <span class="product-tag">Ceramic · Indoor</span>
+        <h3>WHITE CERAMIC</h3>
         <div class="price">
-          <h5 class="old_price">₹55</h5>
-          <h4 class="new-price">₹39</h4>
+          <h5 class="old_price">₹449</h5>
+          <h4 class="new-price">₹349</h4>
         </div>
       </div>
 
-      <div class="product-card" data-id="sunflower" data-name="SUNFLOWER" data-price="59" data-image="../images/seedimg/sunflower.png" data-category="flower" data-care="easy" data-light="bright">
+      <div class="product-card" data-id="hanging-rope" data-name="HANGING ROPE POT" data-price="279" data-image="../images/pot/Rope PoT.jfif" data-category="hanging" data-size="small" data-use="indoor">
         <div class="product-image">
           <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </button>
-          <a href="../productpage/sunflower.html"><img src="../images/seedimg/sunflower.png" alt="Sunflower seeds"></a>
+          <a href="../productpage/hanging-rope.html"><img src="../images/pot/Rope PoT.jfif" alt="Hanging rope pot"></a>
         </div>
-        <span class="product-tag">Flower · Easy care</span>
-        <h3>SUNFLOWER</h3>
+        <span class="product-tag">Hanging · Small</span>
+        <h3>HANGING ROPE POT</h3>
         <div class="price">
-          <h5 class="old_price">₹79</h5>
-          <h4 class="new-price">₹59</h4>
+          <h5 class="old_price">₹399</h5>
+          <h4 class="new-price">₹279</h4>
         </div>
       </div>
 
-      <div class="product-card" data-id="marigold" data-name="MARIGOLD" data-price="45" data-image="../images/seedimg/marigold.png" data-category="flower" data-care="easy" data-light="bright">
+      <div class="product-card" data-id="self-watering" data-name="SELF-WATERING POT" data-price="499" data-image="../images/pot/self watering plant pots.jfif" data-category="ceramic" data-size="medium" data-use="indoor">
         <div class="product-image">
           <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </button>
-          <a href="../productpage/marigold.html"><img src="../images/seedimg/marigold.png" alt="Marigold seeds"></a>
+          <a href="../productpage/self-watering.html"><img src="../images/pot/self watering plant pots.jfif" alt="Self-watering pot"></a>
         </div>
-        <span class="product-tag">Flower · Easy care</span>
-        <h3>MARIGOLD</h3>
+        <span class="product-tag">Ceramic · Indoor</span>
+        <h3>SELF-WATERING POT</h3>
         <div class="price">
-          <h5 class="old_price">₹65</h5>
-          <h4 class="new-price">₹45</h4>
+          <h5 class="old_price">₹649</h5>
+          <h4 class="new-price">₹499</h4>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="floor-planter" data-name="LARGE FLOOR PLANTER" data-price="899" data-image="../images/pot/large pot.jfif" data-category="decorative" data-size="large" data-use="indoor">
+        <div class="product-image">
+          <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+          <a href="../productpage/floor-planter.html"><img src="../images/pot/large pot.jfif" alt="Large floor planter"></a>
+        </div>
+        <span class="product-tag">Decorative · Large</span>
+        <h3>LARGE FLOOR PLANTER</h3>
+        <div class="price">
+          <h5 class="old_price">₹1199</h5>
+          <h4 class="new-price">₹899</h4>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="concrete-minimal" data-name="CONCRETE MINIMAL" data-price="429" data-image="../images/pot/DIY Faux Concrete Planters.jfif" data-category="decorative" data-size="medium" data-use="outdoor">
+        <div class="product-image">
+          <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+          <a href="../productpage/concrete-minimal.html"><img src="../images/pot/DIY Faux Concrete Planters.jfif" alt="Concrete minimal pot"></a>
+        </div>
+        <span class="product-tag">Decorative · Outdoor</span>
+        <h3>CONCRETE MINIMAL</h3>
+        <div class="price">
+          <h5 class="old_price">₹549</h5>
+          <h4 class="new-price">₹429</h4>
         </div>
       </div>
 
     </div>
 
-    <p class="no-results" hidden>No seeds match your filters. Try adjusting your selection.</p>
+    <p class="no-results" hidden>No pots match your filters. Try adjusting your selection.</p>
   </section>
 
   <footer class="footers">
@@ -283,6 +300,6 @@
   </footer>
   <script src="../home/wishlist.js"></script>
   <script src="../home/cart.js"></script>
-  <script src="seedshop.js"></script>
+  <script src="potshop.js"></script>
 </body>
 </html>
