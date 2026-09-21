@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Areca Palm | Arveli</title>
+  <title>tool shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
-  <link rel="stylesheet" href="../home/style.css" />
-  <link rel="stylesheet" href="product-detail.css" />
+  <link rel="stylesheet" href="../plantshop/plantshop.css" />
 </head>
 <body>
   <nav class="navbar">
     <div class="logof">
-      <img src="../images/tre1.png" alt="Arveli logo">
+      <img src="../images/white.png" alt="Logo" width="100" height="50">
     </div>
     <ul class="nav-links">
       <li><a href="../home/index.html">Home</a></li>
@@ -21,8 +20,8 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <div class="search-container">
-      <label for="product-search" class="material-symbols-outlined" aria-hidden="true">search</label>
-      <input id="product-search" type="search" placeholder="Search plants..." aria-label="Search plants" autocomplete="off" />
+      <label for="tool-search" class="material-symbols-outlined" aria-hidden="true">search</label>
+      <input id="tool-search" type="search" placeholder="Search tools..." aria-label="Search tools" autocomplete="off" />
     </div>
     <div class="access-link">
       <button class="wishlist-link" type="button" aria-label="Open wishlist">
@@ -87,39 +86,110 @@
     </div>
   </aside>
 
-  <main class="product-detail">
-    <div class="product-detail__image">
-      <img src="../images/areca-palm.jpg" alt="Areca palm">
-    </div>
-    <div class="product-detail__info">
-      <span class="product-detail__tag">Indoor · Medium care · Bright light</span>
-      <h1>Areca Palm</h1>
-      <p class="product-detail__price">₹158</p>
-      <p class="product-detail__desc">
-        A graceful palm that brightens indoor spaces and helps purify the air. Best in bright, indirect light with steady watering.
-      </p>
-      <div class="product-detail__actions">
-        <div class="qty-control" aria-label="Quantity">
-          <button id="qty-minus" type="button" aria-label="Decrease quantity">−</button>
-          <span id="qty-value">1</span>
-          <button id="qty-plus" type="button" aria-label="Increase quantity">+</button>
-        </div>
-        <button
-          id="add-to-cart"
-          class="btn btn--primary"
-          type="button"
-          data-id="areca-palm"
-          data-name="ARECA PALM"
-          data-price="158"
-          data-image="../images/areca-palm.jpg"
-        >
-          Add to cart
-        </button>
-      </div>
-    </div>
-  </main>
+  <section class="products-section" id="pots">
+    <h1>tools</h1>
+    <div class="heading-line"></div>
 
-  <footer class="footers">
+    <div class="shop-actions">
+      <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+        </svg>
+        Filter
+        <span class="filter-active-badge" hidden>0</span>
+      </button>
+      <p class="filter-results-count" aria-live="polite">Showing all pots</p>
+    </div>
+
+    <div class="shop-toolbar" id="filter-panel" hidden>
+     
+      
+      <div class="filter-group">
+        <label for="filter-sort">Sort by</label>
+        <select id="filter-sort" aria-label="Sort pots">
+          <option value="default">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A–Z</option>
+        </select>
+      </div>
+      <button class="filter-clear" type="button">Clear filters</button>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+
+      <div class="product-card" data-id="gloves" data-name="Gardening hand Glove" data-price="199" data-image="../images/tool/gloves.jpg" data-category="tool"  data-use="best sold">
+        <div class="product-image">
+          <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+          <a href="../productpage/gloves.html"><img src="../images/tool/gloves.jpg" alt="Gardening hand Glove "></a>
+        </div>
+        <span class="product-tag">glove</span>
+        <h3>Gardening hand Glove</h3>
+        <div class="price">
+          <h5 class="old_price">₹299</h5>
+          <h4 class="new-price">₹199</h4>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="white-ceramic" data-name="WHITE CERAMIC" data-price="349" data-image="../images/pot/WHITE CERAMIC.jfif" data-category="ceramic" data-size="medium" data-use="indoor">
+        <div class="product-image">
+          <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+          <a href="../productpage/white-ceramic.html"><img src="../images/tool/purner.jpg " alt="White ceramic planter"></a>
+        </div>
+        <span class="product-tag">PURNER</span>
+      <h3>PURNER</h3>
+        <div class="price">
+          <h5 class="old_price">₹449</h5>
+          <h4 class="new-price">₹349</h4>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="hanging-rope" data-name="HANGING ROPE POT" data-price="279" data-image="../images/pot/Rope PoT.jfif" data-category="hanging" data-size="small" data-use="indoor">
+        <div class="product-image">
+          <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+          <a href="../productpage/hanging-rope.html"><img src="../images/tool/trowel.jfif" alt="Hanging rope pot"></a>
+        </div>
+        <span class="product-tag">Trowel</span>
+        <h3>Trowel</h3>
+        <div class="price">
+          <h5 class="old_price">₹399</h5>
+          <h4 class="new-price">₹279</h4>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="self-watering" data-name="SELF-WATERING POT" data-price="499" data-image="../images/pot/self watering plant pots.jfif" data-category="ceramic" data-size="medium" data-use="indoor">
+        <div class="product-image">
+          <button class="wishlist-btn" type="button" aria-label="Add to wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+          <a href="../productpage/self-watering.html"><img src="../images/tool/secateurs.jpg" alt="Self-watering pot"></a>
+        </div>
+        <span class="product-tag">Secateurs</span>
+        <h3>Secateurs</h3>
+        <div class="price">
+          <h5 class="old_price">₹649</h5>
+          <h4 class="new-price">₹499</h4>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footers">  
     <div class="footer-top">
       <div class="logoof">
         <img src="../images/white.png" alt="Logo" width="100" height="50">
@@ -167,23 +237,8 @@
     <hr>
     <p>&copy; 2026 Your Company. All rights reserved.</p>
   </footer>
-
   <script src="../home/wishlist.js"></script>
   <script src="../home/cart.js"></script>
-  <script src="../home/global-search.js"></script>
-  <script>
-    (() => {
-      const input = document.getElementById("product-search");
-      if (!input) return;
-      input.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return;
-        e.preventDefault();
-        const q = input.value.trim();
-        window.location.href =
-          "../plantshop/plantshop.html" +
-          (q ? `?q=${encodeURIComponent(q)}` : "");
-      });
-    })();
-  </script>
+  <script src="tool.js"></script>
 </body>
 </html>

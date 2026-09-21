@@ -193,8 +193,9 @@ function setupActionButtons() {
 
   if (findBtn) {
     findBtn.addEventListener("click", () => {
-      findAndRenderRecommendations();
-      scrollToResults();
+      if (findAndRenderRecommendations()) {
+        scrollToResults();
+      }
     });
   }
 
@@ -220,7 +221,7 @@ function resetQuizSelections() {
 }
 
 // 6. INITIAL PROMPT WHEN NO OPTIONS HAVE BEEN SEARCHED YET
-function renderInitialPrompt() {
+function renderPrompt(title, message) {
   const container = document.getElementById("recommendationsGrid");
   const countSubtext = document.getElementById("resultsCountText");
 
@@ -228,14 +229,21 @@ function renderInitialPrompt() {
 
   container.innerHTML = `
     <div class="empty-results">
-      <h3>Ready to find your plant?</h3>
-      <p>Select your preferences above and click <strong>"Find My Recommended Plants"</strong> to discover recommendations tailored for your home.</p>
+      <h3>${title}</h3>
+      <p>${message}</p>
     </div>
   `;
 
   if (countSubtext) {
-    countSubtext.textContent = "Select your preferences above and click 'Find My Recommended Plants' to generate results.";
+    countSubtext.textContent = message;
   }
+}
+
+function renderInitialPrompt() {
+  renderPrompt(
+    "Ready to find your plant?",
+    "Select your preferences above and click \"Find My Recommended Plants\" to discover recommendations tailored for your home."
+  );
 }
 
 // 7. PLANT MATCHING & FILTERING ALGORITHM
@@ -244,8 +252,12 @@ function findAndRenderRecommendations() {
   const hasSelections = Object.values(currentPreferences).some((val) => val !== null);
 
   if (!hasSelections) {
-    alert("Please select at least one option to find matching plants!");
-    return;
+    renderPrompt(
+      "Tell us a little more",
+      "Select at least one preference above, then click \"Find My Recommended Plants\" to see your matches."
+    );
+    scrollToResults();
+    return false;
   }
 
   // Score each plant based on criteria matches
@@ -294,6 +306,7 @@ function findAndRenderRecommendations() {
     .sort((a, b) => b.score - a.score);
 
   renderPlantCards(matchingResults);
+  return true;
 }
 
 // 8. RENDER RECOMMENDATION CARDS TO HTML

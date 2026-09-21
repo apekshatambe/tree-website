@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!grid) return;
 
   const categorySelect = document.getElementById("filter-category");
+  const sizeSelect = document.getElementById("filter-size");
+  const useSelect = document.getElementById("filter-use");
   const sortSelect = document.getElementById("filter-sort");
   const clearBtn = document.querySelector(".filter-clear");
   const filterToggle = document.querySelector(".filter-toggle");
@@ -11,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultsCount = document.querySelector(".filter-results-count");
   const noResults = document.querySelector(".no-results");
   const searchInput =
-    document.getElementById("plant-search") ||
+    document.getElementById("pot-search") ||
     document.querySelector(".search-container input");
   const cards = Array.from(grid.querySelectorAll(".product-card"));
 
@@ -23,27 +25,27 @@ document.addEventListener("DOMContentLoaded", () => {
     filterToggle.setAttribute("aria-expanded", open ? "true" : "false");
   };
 
-  const matches = (card, category, query) => {
+  const matches = (card, category, size, use, query) => {
     if (category !== "all") {
-      const categories = (card.dataset.category || "").split(/\s+/);
-      if (!categories.includes(category)) return false;
+      const cats = (card.dataset.category || "").split(/\s+/);
+      if (!cats.includes(category)) return false;
     }
+    if (size !== "all" && card.dataset.size !== size) return false;
+    if (use !== "all" && card.dataset.use !== use) return false;
 
     if (query) {
-      const searchText = query.toLowerCase();
+      const q = query.toLowerCase();
       const tag = card.querySelector(".product-tag");
       const title = card.querySelector("h3");
-      const image = card.querySelector("img");
       const haystacks = [
         card.dataset.name || "",
         card.dataset.category || "",
+        card.dataset.size || "",
+        card.dataset.use || "",
         tag ? tag.textContent : "",
-        title ? title.textContent : "",
-        image ? image.alt : ""
+        title ? title.textContent : ""
       ];
-      const found = haystacks.some((text) =>
-        text.toLowerCase().includes(searchText)
-      );
+      const found = haystacks.some((text) => text.toLowerCase().includes(q));
       if (!found) return false;
     }
 
@@ -52,12 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sortCards = (list, sortBy) =>
     list.slice().sort((a, b) => {
-      if (sortBy === "price-asc") {
-        return Number(a.dataset.price) - Number(b.dataset.price);
-      }
-      if (sortBy === "price-desc") {
-        return Number(b.dataset.price) - Number(a.dataset.price);
-      }
+      if (sortBy === "price-asc") return Number(a.dataset.price) - Number(b.dataset.price);
+      if (sortBy === "price-desc") return Number(b.dataset.price) - Number(a.dataset.price);
       if (sortBy === "name-asc") {
         return (a.dataset.name || "").localeCompare(b.dataset.name || "");
       }
@@ -68,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!activeBadge) return;
     let count = 0;
     if (categorySelect && categorySelect.value !== "all") count++;
+    if (sizeSelect && sizeSelect.value !== "all") count++;
+    if (useSelect && useSelect.value !== "all") count++;
     if (searchInput && searchInput.value.trim()) count++;
     activeBadge.textContent = String(count);
     activeBadge.hidden = count === 0;
@@ -75,11 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const applyFilters = () => {
     const category = val(categorySelect, "all");
+    const size = val(sizeSelect, "all");
+    const use = val(useSelect, "all");
     const sortBy = val(sortSelect, "default");
     const query = searchInput ? searchInput.value.trim() : "";
 
     const visible = cards.filter((card) =>
-      matches(card, category, query)
+      matches(card, category, size, use, query)
     );
 
     if (sortBy === "default") {
@@ -99,9 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (query && count === 0) {
         resultsCount.textContent = `No results for "${query}"`;
       } else if (count === cards.length && !query) {
-        resultsCount.textContent = `Showing all ${count} decorative items`;
+        resultsCount.textContent = `Showing all ${count} tools`;
       } else {
-        resultsCount.textContent = `Showing ${count} of ${cards.length} decorative items`;
+        resultsCount.textContent = `Showing ${count} of ${cards.length} tools`;
       }
     }
 
@@ -109,8 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
       noResults.hidden = count > 0;
       noResults.textContent =
         query && count === 0
-          ? `No decorative items match "${query}". Try another search.`
-          : "No decorative items match your filters. Try adjusting your selection.";
+          ? `No tools match "${query}". Try another search.`
+          : "No tools match your filters. Try adjusting your selection.";
     }
 
     updateBadge();
@@ -118,6 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const clearFilters = () => {
     if (categorySelect) categorySelect.value = "all";
+    if (sizeSelect) sizeSelect.value = "all";
+    if (useSelect) useSelect.value = "all";
     if (sortSelect) sortSelect.value = "default";
     if (searchInput) searchInput.value = "";
     applyFilters();
@@ -141,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") setPanel(false);
   });
 
-  [categorySelect, sortSelect].forEach((el) => {
+  [categorySelect, sizeSelect, useSelect, sortSelect].forEach((el) => {
     if (el) el.addEventListener("change", applyFilters);
   });
 

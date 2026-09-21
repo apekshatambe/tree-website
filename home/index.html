@@ -49,10 +49,17 @@
       <li><a href="../plantfinder/plantfinder.html">Plant Finder</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    <div class="search-container">
+    <form class="search-container" role="search" autocomplete="off">
       <label for="home-search" class="material-symbols-outlined" aria-hidden="true">search</label>
-      <input id="home-search" type="search" placeholder="Search plants..." aria-label="Search plants" autocomplete="off" />
-    </div>
+      <input id="home-search" type="search" placeholder="Search plants, seeds, pots..." aria-label="Search products" aria-controls="home-search-suggestions" aria-autocomplete="list" autocomplete="off" />
+      <button class="search-clear" type="button" aria-label="Clear search" hidden>&times;</button>
+      <button class="search-submit" type="submit" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M5 12h13M13 6l6 6-6 6" />
+        </svg>
+      </button>
+      <div class="search-suggestions" id="home-search-suggestions" role="listbox" hidden></div>
+    </form>
     <div class="access-link">
     
     <button class="wishlist-link" type="button" aria-label="Open wishlist">
@@ -194,17 +201,19 @@
 
             <div class="product-card category-card">
                 <div class="product-image category-image">
+                  <a href="../toolshop/tool.html">
                     <img src="../images/tool.jpeg" alt="Gardening tools">
                 </div>
                 <h3>GARDENING TOOLS</h3>
+              </a>
             </div>
 
-            <div class="product-card category-card">
+            <a href="../fertshop/fertshop.html" class="product-card category-card">
                 <div class="product-image category-image">
                     <img src="../images/soil.jpeg" alt="Soil and fertilizer">
                 </div>
                 <h3>SOIL &amp; FERTILIZER</h3>
-            </div>
+            </a>
 
             <a href="../potshop/potshop.html" class="product-card category-card">
                 <div class="product-image category-image">
@@ -467,6 +476,7 @@
   </footer>
   <script src="wishlist.js"></script>
   <script src="cart.js"></script>
+  <script src="global-search.js"></script>
   <script>
     (() => {
       const input = document.getElementById("home-search");
