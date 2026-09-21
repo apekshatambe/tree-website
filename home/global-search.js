@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { label: "Arveli Handpainted Clay Pots", hint: "Pot · ₹199", icon: "yard", image: "../images/pot/clay pots.jfif", target: "../potshop/potshop.html" },
     { label: "White Ceramic", hint: "Pot · ₹349", icon: "yard", image: "../images/pot/WHITE CERAMIC.jfif", target: "../potshop/potshop.html" },
     { label: "Hanging Rope Pot", hint: "Pot · ₹279", icon: "yard", image: "../images/pot/Rope PoT.jfif", target: "../potshop/potshop.html" },
-    { label: "Self-Watering Pot", hint: "Pot · ₹499", icon: "yard", image: "../images/pot/self watering plant pots.jfif", target: "../potshop/potshop.html" },
+    { label: "Self-Watering Pot", hint: "Pot · ₹499", icon: "yard", image: "../images/pot/Self watering plant pots.jfif", target: "../potshop/potshop.html" },
     { label: "Large Floor Planter", hint: "Pot · ₹899", icon: "yard", image: "../images/pot/large pot.jfif", target: "../potshop/potshop.html" },
     { label: "Concrete Minimal", hint: "Pot · ₹429", icon: "yard", image: "../images/pot/DIY Faux Concrete Planters.jfif", target: "../potshop/potshop.html" },
     { label: "Gardening Hand Glove", hint: "Tool · ₹199", icon: "handyman", image: "../images/tool/gloves.jpg", target: "../toolshop/tool.html" },
