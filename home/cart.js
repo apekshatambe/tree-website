@@ -45,6 +45,7 @@ function addToCart(product, qty) {
 
 function normalizeImagePath(path) {
   if (!path) return "";
+  if (String(path).startsWith("../images/")) return String(path);
   const file = String(path).split("/").pop();
   return "../images/" + file;
 }

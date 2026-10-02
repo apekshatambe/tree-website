@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZZ Plant | Arveli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search">
+  <link rel="stylesheet" href="../home/style.css">
+  <link rel="stylesheet" href="product-detail.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logof"><img src="../images/tre1.png" alt="Arveli logo"></div>
+    <ul class="nav-links"><li><a href="../home/index.html">Home</a></li><li><a href="../plantshop/plantshop.html">Shop</a></li><li><a href="../plantfinder/plantfinder.html">Plant Finder</a></li><li><a href="../spaces/living-room.html">Living Room</a></li></ul>
+    <div class="search-container"><label for="product-search" class="material-symbols-outlined" aria-hidden="true">search</label><input id="product-search" type="search" placeholder="Search plants..." aria-label="Search plants" autocomplete="off"></div>
+    <div class="access-link">
+      <button class="wishlist-link" type="button" aria-label="Open wishlist"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="wishlist-badge" hidden>0</span></button>
+      <div><a class="cart-link" href="#" aria-label="Cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="cart-badge" hidden>0</span></a></div>
+      <div class="profile"><a href="../login/login.html" aria-label="Profile"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.42 3.58-8 8-8s8 3.58 8 8"/></svg></a></div>
+    </div>
+  </nav>
+  <div class="wishlist-overlay" aria-hidden="true"></div><aside class="wishlist-panel" aria-label="Wishlist"><div class="wishlist-header"><h2>My Wishlist</h2><button class="wishlist-close" type="button" aria-label="Close wishlist">×</button></div><div class="wishlist-body"><p class="wishlist-empty">Your wishlist is empty. Tap the heart on any product to save it here.</p><ul class="wishlist-items" hidden></ul></div></aside>
+  <div class="cart-overlay" aria-hidden="true"></div><aside class="cart-panel" aria-label="Cart"><div class="cart-header"><h2>My Cart</h2><button class="cart-close" type="button" aria-label="Close cart">×</button></div><div class="cart-body"><p class="cart-empty">Your cart is empty. Add a plant to get started.</p><ul class="cart-items" hidden></ul></div></aside>
+  <main class="product-detail">
+    <div class="product-detail__image"><img src="../images/livingroom/zz plant.jpg" alt="ZZ Plant"></div>
+    <div class="product-detail__info"><span class="product-detail__tag">Indoor · Easy care · Low light</span><h1>ZZ Plant</h1><p class="product-detail__price">₹349</p><p class="product-detail__desc">Glossy, upright leaves add a sculptural touch to living rooms, even in lower-light corners. Let the soil dry between waterings; the ZZ Plant stores water in its rhizomes.</p>
+      <div class="product-detail__actions"><div class="qty-control" aria-label="Quantity"><button id="qty-minus" type="button" aria-label="Decrease quantity">−</button><span id="qty-value">1</span><button id="qty-plus" type="button" aria-label="Increase quantity">+</button></div><button id="add-to-cart" class="btn btn--primary" type="button" data-id="zz-plant" data-name="ZZ PLANT" data-price="349" data-image="../images/livingroom/zz plant.jpg">Add to cart</button></div>
+    </div>
+  </main>
+  <footer class="footers"><div class="footer-top"><div class="logoof"><img src="../images/white.png" alt="Arveli logo" width="100" height="50"><h1 class="footer-desc">Bring nature home with beautiful plants and easy care.<br>A place that feels like home.</h1></div><div class="footer-about"><div class="footer-shop"><h3>Shop</h3><ul><li><a href="../plantshop/plantshop.html">Plants</a></li><li><a href="../spaces/living-room.html">Living Room plants</a></li></ul></div><div class="footer-policy"><h3>Explore</h3><ul><li><a href="../plantfinder/plantfinder.html">Plant Finder</a></li><li><a href="../home/index.html">Home</a></li></ul></div></div></div><hr><p>&copy; 2026 ARVELI. All rights reserved.</p></footer>
+  <script src="../home/wishlist.js"></script><script src="../home/cart.js"></script><script src="../home/global-search.js"></script>
+  <script>document.getElementById("product-search").addEventListener("keydown", event => { if (event.key === "Enter") location.href = "../plantshop/plantshop.html?q=" + encodeURIComponent(event.currentTarget.value.trim()); });</script>
+</body>
+</html>
