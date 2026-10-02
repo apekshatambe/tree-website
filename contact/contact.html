@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | ARVELI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search">
+<link rel="stylesheet" href="../home/style.css">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: #f5faf3;
+  color: #203326;
+}
+
+.navbar {
+  max-width: none;
+  width: auto;
+  margin: 0;
+  height: 78px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.navbar .logof img {
+  display: block;
+  height: 52px;
+  width: auto;
+  max-width: 175px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 16px;
+}
+
+/* ================= HEADER ================= */
+
+header {
+  background: #fff;
+  box-shadow: 0 2px 12px #0001;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 7px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap:8px;
+}
+
+.logo img {
+    width: 110px;
+    height: auto;
+    display: block;
+    gap:5px;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+
+    width: 400px;       /* increase this */
+    height: 42px;
+
+    margin-left: 35px;
+
+    border: 1px solid #d5ddd7;
+    border-radius: 25px;
+
+    overflow: hidden;
+    background: white;
+}
+.search-box input {
+    flex: 1;
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    padding: 0 15px;
+
+    font-size: 14px;
+    color: #333;
+}
+
+.search-box input::placeholder {
+    color: #999;
+}
+
+.search-box button {
+    width: 50px;
+    height: 100%;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.search-icon {
+    width: 15px;
+    height: 15px;
+
+    border: 2px solid #286b3b;
+    border-radius: 50%;
+
+    position: relative;
+    display: block;
+}
+
+.search-icon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 2px;
+
+    background: #286b3b;
+
+    right: -6px;
+    bottom: -3px;
+
+    transform: rotate(45deg);
+    border-radius: 2px;
+}
+/* Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 5px;
+}
+
+.nav-icons a {
+    color: #1f3528;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.nav-icons a:hover {
+    color: #299447;
+}
+/* ================= HERO ================= */
+
+.hero {
+  height: 360px;
+  background:
+    linear-gradient(#144623ad, #144623ad),
+    url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 58px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 20px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 25px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+}
+
+h2 {
+  color: #287443;
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.contact-info > p {
+  color: #617067;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  background: #fff;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px #0000000f;
+}
+
+.contact-item strong {
+  display: block;
+  color: #287443;
+  margin-bottom: 6px;
+}
+
+/* ================= FORM ================= */
+
+.contact-form {
+  background: #fff;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px #00000014;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccd9ce;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+button {
+  background: #287443;
+  color: #fff;
+  border: 0;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d5d32;
+}
+
+.success {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  background: #e5f6e6;
+  color: #226331;
+  border-radius: 10px;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+  background: #001d13;
+  color: #fff;
+  padding: 36px 6% 0;
+  text-align: left;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 145px;
+}
+
+/* -------- Brand -------- */
+
+.footer-brand {
+  max-width: 270px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.footer-logo-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.footer-brand p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* -------- Footer Links -------- */
+
+.footer-links {
+  display: flex;
+  gap: 75px;
+  margin-right: 20px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 105px;
+}
+
+.footer-column h3 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer-column a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.9;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.footer-column a:hover {
+  opacity: 0.65;
+}
+
+/* -------- Social -------- */
+
+.footer-social {
+  min-width: 100px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.social-icons a {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* -------- Copyright -------- */
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 25px auto 0;
+  height: 62px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.65);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .footer-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 30px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 550px) {
+
+  .hero {
+    height: 300px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+  }
+
+  .footer-social {
+    grid-column: span 2;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+  <nav class="navbar">
+    <div class="logof">
+      <a href="../home/index.html" aria-label="ARVELI home"><img src="../images/tre1.png" alt="Arveli logo"></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../home/index.html">Home</a></li>
+      <li><a href="../plantshop/plantshop.html">Shop</a></li>
+      <li><a href="../plantfinder/plantfinder.html">Plant Finder</a></li>
+      <li><a href="contact.html" class="active-link" aria-current="page">Contact</a></li>
+    </ul>
+    <form class="search-container" id="contact-search-form" role="search" autocomplete="off">
+      <label for="contact-search" class="material-symbols-outlined" aria-hidden="true">search</label>
+      <input id="contact-search" type="search" placeholder="Search plants, seeds, pots..." aria-label="Search products" autocomplete="off">
+      <button class="search-clear" type="button" aria-label="Clear search" hidden>&times;</button>
+      <button class="search-submit" type="submit" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+      </button>
+      <div class="search-suggestions" id="home-search-suggestions" role="listbox" hidden></div>
+    </form>
+    <div class="access-link">
+      <button class="wishlist-link" type="button" aria-label="Open wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="wishlist-badge" hidden>0</span>
+      </button>
+      <div>
+        <a class="cart-link" href="#" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M6 6h15l-1.5 9h-12z"></path>
+            <path d="M6 6L5 3H2"></path>
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+          </svg>
+          <span class="cart-badge" hidden>0</span>
+        </a>
+      </div>
+      <div class="profile">
+        <a href="../login/login.html" aria-label="User Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21c0-4.42 3.58-8 8-8s8 3.58 8 8"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wishlist-overlay" aria-hidden="true"></div>
+  <aside class="wishlist-panel" aria-label="Wishlist">
+    <div class="wishlist-header">
+      <h2>My Wishlist</h2>
+      <button class="wishlist-close" type="button" aria-label="Close wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="wishlist-body">
+      <p class="wishlist-empty">Your wishlist is empty. Tap the heart on any product to save it here.</p>
+      <ul class="wishlist-items" hidden></ul>
+    </div>
+  </aside>
+  <div class="cart-overlay" aria-hidden="true"></div>
+  <aside class="cart-panel" aria-label="Cart">
+    <div class="cart-header">
+      <h2>My Cart</h2>
+      <button class="cart-close" type="button" aria-label="Close cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="cart-body">
+      <p class="cart-empty">Your cart is empty. Add a plant to get started.</p>
+      <ul class="cart-items" hidden></ul>
+    </div>
+  </aside>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+  <div>
+    <h1>Contact Arveli</h1>
+    <p>Let’s grow a greener future together.</p>
+  </div>
+</section>
+
+
+<!-- ================= CONTACT SECTION ================= -->
+
+<section class="contact-section">
+
+  <div class="contact-grid">
+
+    <!-- Contact Information -->
+
+    <div class="contact-info">
+
+      <h2>Get In Touch</h2>
+
+      <p>
+        Have a question about our plants, tree delivery, or your order?
+        We'd love to hear from you.
+      </p>
+
+      <div class="contact-item">
+        <strong>Address</strong>
+        Pune, Maharashtra, India
+      </div>
+
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <a href="tel:+919876543210">+91 98765 43210</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Email</strong>
+        <a href="mailto:hello@arveli.com">hello@arveli.com</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Working Hours</strong>
+        Monday - Saturday: 9:00 AM - 7:00 PM
+      </div>
+
+    </div>
+
+
+    <!-- Contact Form -->
+
+    <div class="contact-form">
+
+      <h2>Send Us a Message</h2>
+
+      <form onsubmit="sendMessage(event)">
+
+        <div class="form-group">
+          <label for="contact-name">Full Name</label>
+          <input
+            id="contact-name"
+            name="name"
+            autocomplete="name"
+            type="text"
+            required
+            placeholder="Enter your name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Email Address</label>
+          <input
+            id="contact-email"
+            name="email"
+            autocomplete="email"
+            type="email"
+            required
+            placeholder="Enter your email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="contact-phone">Phone Number</label>
+          <input
+            id="contact-phone"
+            name="phone"
+            autocomplete="tel"
+            type="tel"
+            placeholder="Enter your phone number"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="contact-subject">Subject</label>
+          <input
+            id="contact-subject"
+            name="subject"
+            type="text"
+            required
+            placeholder="Enter subject"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea
+            id="contact-message"
+            name="message"
+            required
+            placeholder="Write your message..."
+          ></textarea>
+        </div>
+
+        <button type="submit">
+          Send Message
+        </button>
+
+        <div class="success" id="success">
+          Your email app should open with your message ready to send.
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER — MATCHING YOUR SCREENSHOT
+     ===================================================== -->
+
+  <footer class="footers">
+    <div class="footer-top">
+      <div class="logoof">
+        <img src="../images/white.png" alt="Logo" width="100" height="50">
+        <h1 class="footer-desc">Bring nature home with beautiful plants and easy care.<br>A place that feels like home.</h1>
+      </div>
+      <div class="footer-about">
+        <div class="footer-shop">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="../plantshop/plantshop.html">Plants</a></li>
+            <li><a href="../seedshop/seedshop.html">Seeds</a></li>
+            <li><a href="../potshop/potshop.html">Pots</a></li>
+            <li><a href="../fertshop/fertshop.html">Soil &amp; Fertilizer</a></li>
+            <li><a href="../toolshop/tool.html">Tools</a></li>
+            <li><a href="../decorative/decoratives.html">Decorative</a></li>
+          </ul>
+        </div>
+        <div class="footer-policy">
+          <h3>Policy</h3>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Keep In Touch</h3>
+          <div class="social-icons">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+              <circle cx="12" cy="12" r="4.5"/>
+              <circle cx="17.5" cy="6.5" r=".75"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 5.8a8.2 8.2 0 0 1-2.4.7 4.2 4.2 0 0 0 1.8-2.3 8.3 8.3 0 0 1-2.6 1 4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3 4.9a4.1 4.1 0 0 0 1.3 5.5 4 4 0 0 1-1.9-.5v.05a4.1 4.1 0 0 0 3.3 4 4.3 4.3 0 0 1-1.8.07 4.1 4.1 0 0 0 3.8 2.8 8.2 8.2 0 0 1-5.1 1.8A8.4 8.4 0 0 1 2 19.5a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5A8.2 8.2 0 0 0 22 5.8z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="5" width="19" height="14" rx="4"/>
+              <path d="M10 16.5l5-3.5-5-3.5v7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p>&copy; 2026 Your Company. All rights reserved.</p>
+  </footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+function sendMessage(e) {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const data = new FormData(form);
+  const subject = String(data.get("subject")).trim();
+  const body = [
+    `Name: ${String(data.get("name")).trim()}`,
+    `Email: ${String(data.get("email")).trim()}`,
+    `Phone: ${String(data.get("phone")).trim() || "Not provided"}`,
+    "",
+    String(data.get("message")).trim()
+  ].join("\n");
+  const status = document.getElementById("success");
+  status.style.display = "block";
+  status.setAttribute("role", "status");
+  status.setAttribute("aria-live", "polite");
+  window.location.href = `mailto:hello@arveli.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+</script>
+
+<script>
+document.getElementById("contact-search-form").addEventListener("submit", event => {
+  event.preventDefault();
+  const query = document.getElementById("contact-search").value.trim();
+  window.location.href = "../plantshop/plantshop.html" + (query ? `?q=${encodeURIComponent(query)}` : "");
+});
+</script>
+<script src="../home/wishlist.js"></script>
+<script src="../home/cart.js"></script>
+
+</body>
+</html>

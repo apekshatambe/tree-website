@@ -47,7 +47,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="../plantshop/plantshop.html">Shop</a></li>
       <li><a href="../plantfinder/plantfinder.html">Plant Finder</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="../contact/contact.html">Contact</a></li>
     </ul>
     <form class="search-container" role="search" autocomplete="off">
       <label for="home-search" class="material-symbols-outlined" aria-hidden="true">search</label>
@@ -339,54 +339,7 @@
 
     </section>
 
-    <section class="about-section" id="about">
-      <div class="about-container">
-        <div class="about-content">
-          <p class="about-eyebrow">Living with greenery</p>
-          <p class="about-copy">
-            An <em>artful approach</em> to indoor plants — made for quiet corners and soft light. A few well-chosen leaves can freshen a room and become part of the story that unfolds around it.
-          </p>
-          <h3 class="about-tagline">Do it your way</h3>
-          <div class="about-doodle" aria-hidden="true">
-            <img src="../images/about-cat.png" alt="">
-          </div>
-        </div>
-        <div class="about-image">
-          <div class="about-image__frame">
-            <img src="../images/about.jpg" alt="Bright room with plants next to a desk">
-          </div>
 
-          <button class="plant-hotspot" type="button" style="--x: 33%; --y: 30%; --w: 20%; --h: 32%;" aria-label="Fiddle Leaf Fig info" aria-describedby="tip-fiddle">
-            <span class="plant-hotspot__tip" id="tip-fiddle" role="tooltip">
-              <strong>Fiddle Leaf Fig</strong>
-              Loves bright, indirect light. Wipe leaves weekly and water when the top soil feels dry.
-            </span>
-          </button>
-
-          <button class="plant-hotspot" type="button" style="--x: 21%; --y: 48%; --w: 14%; --h: 26%;" aria-label="Snake Plant info" aria-describedby="tip-snake">
-            <span class="plant-hotspot__tip" id="tip-snake" role="tooltip">
-              <strong>Snake Plant</strong>
-              Very low-maintenance. Handles low light and needs water only every 2–3 weeks.
-            </span>
-          </button>
-
-          <button class="plant-hotspot" type="button" style="--x: 34%; --y: 66%; --w: 15%; --h: 20%;" aria-label="Calathea info" aria-describedby="tip-calathea">
-            <span class="plant-hotspot__tip plant-hotspot__tip--left" id="tip-calathea" role="tooltip">
-              <strong>Calathea</strong>
-              Prefers medium light and slightly moist soil. Great for adding patterned leaves.
-            </span>
-          </button>
-
-          <button class="plant-hotspot" type="button" style="--x: 22%; --y: 80%; --w: 16%; --h: 20%;" aria-label="Pothos info" aria-describedby="tip-pothos">
-            <span class="plant-hotspot__tip" id="tip-pothos" role="tooltip">
-              <strong>Pothos</strong>
-              Easy trailing plant. Let vines hang for a fuller look; water when soil is partly dry.
-            </span>
-          </button>
-        </div>
-      </div>
-    </section>
-<!--about section end-->
 
     <section class="spaces-section" id="spaces">
       <div class="spaces-container">
@@ -432,7 +385,93 @@
       </div>
     </section>
 
-<!--footer section start-->
+    <!-- About Arveli carousel -->
+    <section class="arveli-about" id="about" aria-labelledby="about-arveli-title">
+      <div class="arveli-about__heading">
+        <p class="arveli-about__eyebrow">About us</p>
+        <h2 id="about-arveli-title">A little more about Arveli</h2>
+      </div>
+
+      <div class="arveli-carousel-container">
+        <button class="arveli-carousel-arrow prev" type="button" id="arveliAboutPrev" aria-label="Previous slide">
+          <span aria-hidden="true">&#10094;</span>
+        </button>
+        <button class="arveli-carousel-arrow next" type="button" id="arveliAboutNext" aria-label="Next slide">
+          <span aria-hidden="true">&#10095;</span>
+        </button>
+
+        <div class="arveli-carousel-viewport">
+          <div class="arveli-carousel-slides" id="arveliAboutSlides">
+
+            <article class="arveli-carousel-slide">
+              <div class="arveli-slide-image">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Green plants growing in nature">
+              </div>
+              <div class="arveli-slide-content">
+                <p class="arveli-slide-quote">"Don't just send a tree.<br>Send what you mean."</p>
+                <h3>What is Arveli?</h3>
+                <p>
+                  Arveli brings plants, gardening essentials, and plant discovery together in one place — helping you choose greenery that fits your space, lifestyle, or the feeling you want to share.
+                </p>
+              </div>
+            </article>
+
+            <article class="arveli-carousel-slide">
+              <div class="arveli-slide-image">
+                <img src="https://i.pinimg.com/736x/4a/96/9a/4a969afc1fe12faf62733db95c64dd6a.jpg" alt="Plants and greenery used as meaningful gifts">
+              </div>
+              <div class="arveli-slide-content">
+                <p class="arveli-slide-quote">"Express gratitude and love<br>through living nature."</p>
+                <h3>More Than Just Greenery</h3>
+                <p>
+                  A plant can brighten a room, mark a new beginning, or become a gift that keeps growing. Arveli is built around making those small moments feel more thoughtful and lasting.
+                </p>
+              </div>
+            </article>
+
+            <article class="arveli-carousel-slide">
+              <div class="arveli-slide-image">
+                <img src="https://i.pinimg.com/1200x/05/3b/93/053b93802099e22a9032017cb0c298de.jpg" alt="Decorative indoor greenery">
+              </div>
+              <div class="arveli-slide-content">
+                <p class="arveli-slide-quote">"For anyone seeking gifts<br>with purpose and emotion."</p>
+                <h3>For Every Kind of Plant Lover</h3>
+                <p>
+                  Whether you have a sunny balcony, a quiet living room, a busy office, or a growing garden, Arveli helps you find something that belongs in your space.
+                </p>
+              </div>
+            </article>
+
+            <article class="arveli-carousel-slide">
+              <div class="arveli-slide-image">
+                <img src="https://images.pexels.com/photos/13384736/pexels-photo-13384736.jpeg" alt="Indoor plants and a welcoming green space">
+              </div>
+              <div class="arveli-slide-content">
+                <p class="arveli-slide-quote">"The right plant can turn<br>a space into a feeling."</p>
+                <h3>Find Your Perfect Plant</h3>
+                <p>
+                  Not sure what to choose? Use our Plant Finder to discover plants based on your space, light, lifestyle, and preferences.
+                </p>
+                <a href="../plantfinder/plantfinder.html" class="arveli-slide-btn">Find your plant <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="arveli-carousel-footer">
+          <div class="arveli-carousel-dots" id="arveliAboutDots" role="tablist" aria-label="About Arveli slides">
+          <button type="button" class="active" data-slide="0" role="tab" aria-label="Go to slide 1" aria-selected="true"></button>
+          <button type="button" data-slide="1" role="tab" aria-label="Go to slide 2" aria-selected="false"></button>
+          <button type="button" data-slide="2" role="tab" aria-label="Go to slide 3" aria-selected="false"></button>
+          <button type="button" data-slide="3" role="tab" aria-label="Go to slide 4" aria-selected="false"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Arveli carousel end -->
+
+    <!--footer section start-->
 
   <footer class="footers">
     <div class="footer-top">
@@ -455,7 +494,7 @@
         <div class="footer-policy">
           <h3>Policy</h3>
           <ul>
-            <li><a href="#">Contact</a></li>
+            <li><a href="../contact/contact.html">Contact</a></li>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
             <li><a href="#">Return Policy</a></li>
@@ -484,6 +523,63 @@
     <hr>
     <p>&copy; 2026 Your Company. All rights reserved.</p>
   </footer>
+  <script>
+    (() => {
+      const section = document.querySelector(".arveli-about");
+      const track = document.getElementById("arveliAboutSlides");
+      const dots = [...document.querySelectorAll("#arveliAboutDots button")];
+      const prev = document.getElementById("arveliAboutPrev");
+      const next = document.getElementById("arveliAboutNext");
+      if (!section || !track || !dots.length || !prev || !next) return;
+
+      let current = 0;
+      let timer;
+
+      const update = (index) => {
+        current = (index + dots.length) % dots.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+
+        dots.forEach((dot, i) => {
+          const active = i === current;
+          dot.classList.toggle("active", active);
+          dot.setAttribute("aria-selected", String(active));
+        });
+
+      };
+
+      const startAutoPlay = () => {
+        clearInterval(timer);
+        timer = setInterval(() => update(current + 1), 6000);
+      };
+
+      prev.addEventListener("click", () => {
+        update(current - 1);
+        startAutoPlay();
+      });
+
+      next.addEventListener("click", () => {
+        update(current + 1);
+        startAutoPlay();
+      });
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          update(Number(dot.dataset.slide));
+          startAutoPlay();
+        });
+      });
+
+      section.addEventListener("mouseenter", () => clearInterval(timer));
+      section.addEventListener("mouseleave", startAutoPlay);
+      section.addEventListener("focusin", () => clearInterval(timer));
+      section.addEventListener("focusout", (event) => {
+        if (!section.contains(event.relatedTarget)) startAutoPlay();
+      });
+
+      update(0);
+      startAutoPlay();
+    })();
+  </script>
   <script src="wishlist.js"></script>
   <script src="cart.js"></script>
   <script src="global-search.js"></script>
