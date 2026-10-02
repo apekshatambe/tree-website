@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVELI — Settings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body data-page="settings">
+    <div class="admin-container">
+
+        <div id="sidebarPlaceholder"></div>
+
+        <main class="admin-main">
+            <header class="admin-header page-header">
+                <div class="header-left">
+                    <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open Sidebar">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <div>
+                        <h1 class="header-title">Settings</h1>
+                        <p class="header-subtitle">Manage your store profile and notification preferences.</p>
+                    </div>
+                </div>
+            </header>
+
+            <form id="settingsForm">
+                <section class="card settings-section">
+                    <div class="card-header">
+                        <h2 class="card-title">Store Profile</h2>
+                        <p class="card-subtitle">Shown to customers on receipts and delivery slips.</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="storeName">Store Name</label>
+                            <input type="text" id="storeName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ownerName">Owner Name</label>
+                            <input type="text" id="ownerName" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="storeEmail">Contact Email</label>
+                            <input type="email" id="storeEmail" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="storePhone">Contact Phone</label>
+                            <input type="tel" id="storePhone" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="storeAddress">Store Address</label>
+                        <textarea id="storeAddress" class="form-textarea" rows="2"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="storeCurrency">Currency</label>
+                        <select id="storeCurrency" class="form-select">
+                            <option value="INR">₹ Indian Rupee (INR)</option>
+                            <option value="USD">$ US Dollar (USD)</option>
+                            <option value="EUR">€ Euro (EUR)</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="card settings-section">
+                    <div class="card-header">
+                        <h2 class="card-title">Notification Preferences</h2>
+                        <p class="card-subtitle">Choose what you get alerted about.</p>
+                    </div>
+
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Email me on new orders</div>
+                            <div class="settings-row-hint">Get an email every time a customer places an order.</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="notifyEmailOrders">
+                            <span class="switch-track"></span>
+                        </label>
+                    </div>
+
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">SMS me on new orders</div>
+                            <div class="settings-row-hint">Get a text message for every new order.</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="notifySmsOrders">
+                            <span class="switch-track"></span>
+                        </label>
+                    </div>
+
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Low stock alerts</div>
+                            <div class="settings-row-hint">Get notified when a product's stock runs low.</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="notifyLowStock">
+                            <span class="switch-track"></span>
+                        </label>
+                    </div>
+
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">New customer sign-ups</div>
+                            <div class="settings-row-hint">Get notified when a new customer registers.</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="notifyNewCustomer">
+                            <span class="switch-track"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <div class="settings-save-bar">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="button" class="btn btn-outline" id="resetSettingsBtn">Reset to Defaults</button>
+                    <span class="settings-saved-note" id="settingsSavedNote">✓ Settings saved</span>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+
+</html>

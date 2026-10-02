@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVELI — Order Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body data-page="orders">
+    <div class="admin-container">
+
+        <div id="sidebarPlaceholder"></div>
+
+        <main class="admin-main">
+            <header class="admin-header page-header">
+                <div class="header-left">
+                    <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open Sidebar">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+
+                    <div>
+                        <h1 class="header-title">Orders</h1>
+                        <p class="header-subtitle">Manage and track customer orders.</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Total Orders</span>
+                        <span class="stat-icon-bg blue"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 64 64">
+                                <path d="M18 38h28l-4 20H22z" fill="#C47A4A" />
+                                <path d="M16 36h32v6H16z" rx="2" fill="#A85D35" />
+                                <path d="M32 38V20" stroke="#2D6A4F" stroke-width="4" stroke-linecap="round" />
+                                <path d="M31 27C21 27 16 21 18 15c9 0 14 4 13 12z" fill="#52B788" />
+                                <path d="M33 24C42 24 48 18 46 12c-9 0-14 5-13 12z" fill="#40916C" />
+                                <path d="M31 19C25 18 22 13 24 8c6 1 9 5 7 11z" fill="#74C69D" />
+                            </svg></span>
+                    </div>
+                    <h2 class="stat-value" id="totalOrdersCount">8</h2>
+                    <span class="stat-trend trend-up">All customer orders</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Pending Orders</span>
+                        <span class="stat-icon-bg orange"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 64 64">
+                                <rect x="14" y="7" width="36" height="6" rx="3" fill="#F4C95D" />
+                                <rect x="14" y="51" width="36" height="6" rx="3" fill="#F4C95D" />
+                                <path
+                                    d="M18 13C18 24 25 27 32 32C25 37 18 40 18 51H46C46 40 39 37 32 32C39 27 46 24 46 13Z"
+                                    fill="#EAF4FF" stroke="#D9A441" stroke-width="2" />
+                                <path d="M21 16h22c0 6-5 9-11 13-6-4-11-7-11-13z" fill="#F6B73C" />
+                                <path d="M21 48c2-6 6-10 11-13 5 3 9 7 11 13z" fill="#F6B73C" />
+                                <rect x="30.5" y="28" width="3" height="9" rx="1.5" fill="#F6B73C" />
+                            </svg></span>
+                    </div>
+                    <h2 class="stat-value" id="pendingOrdersCount">2</h2>
+                    <span class="stat-trend trend-warn">Awaiting confirmation</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Confirmed Orders</span>
+                        <span class="stat-icon-bg blue"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 13l4 4L19 7" stroke="#1e40af" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                    </div>
+                    <h2 class="stat-value" id="confirmedOrdersCount">2</h2>
+                    <span class="stat-trend trend-up">Ready to prepare</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Delivered Orders</span>
+                        <span class="stat-icon-bg green"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 13l4 4L19 7" stroke="#065f46" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                    </div>
+                    <h2 class="stat-value" id="deliveredOrdersCount">3</h2>
+                    <span class="stat-trend trend-up">Successfully completed</span>
+                </div>
+
+                <div class="stat-card highlight-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Cancelled Orders</span>
+                        <span class="stat-icon-bg gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.5 6.5L17.5 17.5M17.5 6.5L6.5 17.5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+                            </svg></span>
+                    </div>
+                    <h2 class="stat-value" id="cancelledOrdersCount">1</h2>
+                    <span class="stat-trend">Orders not completed</span>
+                </div>
+            </div>
+
+            <section class="card">
+                <div class="card-header flex-between card-header-row">
+                    <div>
+                        <h2 class="card-title">Customer Orders</h2>
+                        <p class="card-subtitle">Search, filter, and update your latest plant orders.</p>
+                    </div>
+
+                    <div class="list-toolbar">
+                        <div class="header-search">
+                            <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <circle cx="10.5" cy="10.5" r="6.5" stroke="#2D6A4F" stroke-width="2" />
+                                    <path d="M16 16L21 21" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" />
+                                </svg></span>
+                            <input type="search" id="orderSearch" placeholder="Search orders..."
+                                aria-label="Search orders">
+                        </div>
+
+                        <select class="form-select list-filter" id="orderStatusFilter"
+                            aria-label="Filter orders by status">
+                            <option value="All">All Statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Delivered">Delivered</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table nowrap">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Plant / Product</th>
+                                <th>Quantity</th>
+                                <th>Total Amount</th>
+                                <th>Order Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ordersTableBody">
+                            <tr data-order-id="ORD-901" data-customer="Rahul Sharma" data-product="Monstera Deliciosa"
+                                data-quantity="1" data-amount="₹599" data-date="08 Sep 2026" data-status="Pending">
+                                <td><strong>ORD-901</strong></td>
+                                <td>Rahul Sharma</td>
+                                <td>Monstera Deliciosa</td>
+                                <td>1</td>
+                                <td><strong>₹599</strong></td>
+                                <td>08 Sep 2026</td>
+                                <td><span class="badge badge-pending">Pending</span></td>
+                                <td>
+                                    <div class="action-group">
+                                        <button type="button" class="btn btn-sm btn-outline order-view-btn"
+                                            data-order-id="ORD-901">View</button>
+                                        <button type="button" class="btn btn-sm btn-primary order-update-btn"
+                                            data-order-id="ORD-901">Update Status</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr data-order-id="ORD-902" data-customer="Priya Patel" data-product="Snake Plant"
+                                data-quantity="2" data-amount="₹898" data-date="08 Sep 2026" data-status="Confirmed">
+                                <td><strong>ORD-902</strong></td>
+                                <td>Priya Patel</td>
+                                <td>Snake Plant</td>
+                                <td>2</td>
+                                <td><strong>₹898</strong></td>
+                                <td>08 Sep 2026</td>
+                                <td><span class="badge badge-confirmed">Confirmed</span></td>
+                                <td>
+                                    <div class="action-group">
+                                        <button type="button" class="btn btn-sm btn-outline order-view-btn"
+                                            data-order-id="ORD-902">View</button>
+                                        <button type="button" class="btn btn-sm btn-primary order-update-btn"
+                                            data-order-id="ORD-902">Update Status</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr data-order-id="ORD-903" data-customer="Amit Verma" data-product="Areca Palm"
+                                data-quantity="1" data-amount="₹799" data-date="07 Sep 2026" data-status="Delivered">
+                                <td><strong>ORD-903</strong></td>
+                                <td>Amit Verma</td>
+                                <td>Areca Palm</td>
+                                <td>1</td>
+                                <td><strong>₹799</strong></td>
+                                <td>07 Sep 2026</td>
+                                <td><span class="badge badge-delivered">Delivered</span></td>
+                                <td>
+                                    <div class="action-group">
+                                        <button type="button" class="btn btn-sm btn-outline order-view-btn"
+                                            data-order-id="ORD-903">View</button>
+                                        <button type="button" class="btn btn-sm btn-primary order-update-btn"
+                                            data-order-id="ORD-903">Update Status</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr data-order-id="ORD-904" data-customer="Neha Gupta" data-product="Peace Lily"
+                                data-quantity="1" data-amount="₹499" data-date="07 Sep 2026" data-status="Cancelled">
+                                <td><strong>ORD-904</strong></td>
+                                <td>Neha Gupta</td>
+                                <td>Peace Lily</td>
+                                <td>1</td>
+                                <td><strong>₹499</strong></td>
+                                <td>07 Sep 2026</td>
+                                <td><span class="badge badge-cancelled">Cancelled</span></td>
+                                <td>
+                                    <div class="action-group">
+                                        <button type="button" class="btn btn-sm btn-outline order-view-btn"
+                                            data-order-id="ORD-904">View</button>
+                                        <button type="button" class="btn btn-sm btn-primary order-update-btn"
+                                            data-order-id="ORD-904">Update Status</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="orderEmptyState" class="empty-state" style="display: none;">
+                                <td colspan="8">No orders match your search.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="orderDetailsModal">
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+            <div class="modal-header">
+                <h2 class="modal-title" id="orderModalTitle">Order Details</h2>
+                <button type="button" class="modal-close" id="closeOrderModalBtn"
+                    aria-label="Close modal">&times;</button>
+            </div>
+
+            <form id="orderStatusForm">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Order ID</span>
+                        <span class="detail-value" id="modalOrderId"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Customer</span>
+                        <span class="detail-value" id="modalCustomer"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Plant / Product</span>
+                        <span class="detail-value" id="modalProduct"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Quantity</span>
+                        <span class="detail-value" id="modalQuantity"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Total Amount</span>
+                        <span class="detail-value" id="modalAmount"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Order Date</span>
+                        <span class="detail-value" id="modalDate"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="orderStatusSelect">Order Status</label>
+                    <select class="form-select" id="orderStatusSelect">
+                        <option value="Pending">Pending</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="cancelOrderModalBtn">Close</button>
+                    <button type="submit" class="btn btn-primary" id="saveOrderStatusBtn">Save Status</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/order.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,8 @@
 /* ==========================================================================
-   PLANT BOOKING SYSTEM — ARVELI CLEAN ADMIN STYLESHEET
-   Contains ONLY the CSS used in admin.html and product.html
+   PLANT BOOKING SYSTEM — ARVELI ADMIN STYLESHEET
+   Shared by every page in /admin (Dashboard, Products, Orders, Categories,
+   Bookings, Customers). Organized into numbered sections so any section
+   can be found and explained on its own.
    ========================================================================== */
 
 /* 1. RESET & BASE SETUP */
@@ -194,6 +196,13 @@ input, select, textarea {
     margin-bottom: 28px;
     flex-wrap: wrap;
     gap: 16px;
+}
+
+/* Every page header uses .page-header; add extra bottom margin where a
+   toolbar/card follows immediately (was duplicated as order-page-header /
+   management-page-header before) */
+.page-header {
+    margin-bottom: 28px;
 }
 
 .header-left {
@@ -398,6 +407,14 @@ input, select, textarea {
     margin-bottom: 20px;
 }
 
+/* Card header that also holds a toolbar (search/filter/add button) and
+   needs to wrap on small screens. Was duplicated as order-card-header /
+   management-card-header before. */
+.card-header-row {
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
 .card-title {
     font-size: 1.15rem;
     font-weight: 700;
@@ -449,6 +466,18 @@ input, select, textarea {
     background-color: #f8faf8;
 }
 
+.admin-table .cell-caption {
+    color: #64748b;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Tables whose cells should never wrap awkwardly (Orders, Bookings) */
+.admin-table.nowrap th,
+.admin-table.nowrap td {
+    white-space: nowrap;
+}
+
 .tbl-thumb {
     width: 44px;
     height: 44px;
@@ -475,7 +504,9 @@ input, select, textarea {
     color: #1e40af;
 }
 
-.badge-delivered {
+.badge-delivered,
+.badge-completed,
+.badge-active {
     background: #d1fae5;
     color: #065f46;
 }
@@ -498,6 +529,11 @@ input, select, textarea {
 .badge-out-stock {
     background-color: #fee2e2;
     color: #991b1b;
+}
+
+.badge-inactive {
+    background: #e2e8f0;
+    color: #475569;
 }
 
 /* 9. MODAL POPUP & FORM STYLES */
@@ -611,7 +647,202 @@ input, select, textarea {
     padding-top: 16px;
 }
 
-/* 10. RESPONSIVE DESIGN (MOBILE & TABLET) */
+/* 10. LIST-PAGE COMPONENTS
+   Shared by every "browse + search + filter + view/edit" page: Orders,
+   Bookings, Categories, Customers. Products uses most of this too, minus
+   the filter dropdown. This replaces what used to be two near-duplicate
+   sets of classes (order-* and management-*). */
+.list-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.list-filter {
+    width: 170px;
+    padding: 10px 14px;
+}
+
+.action-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-group .btn {
+    white-space: nowrap;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    padding: 12px;
+    background-color: #f8faf8;
+    border-radius: 8px;
+}
+
+.detail-label {
+    display: block;
+    margin-bottom: 4px;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.detail-value {
+    color: #1e293b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.empty-state td {
+    padding: 32px 16px;
+    color: #64748b;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .card-header-row {
+        align-items: stretch;
+    }
+
+    .list-toolbar {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .list-toolbar .header-search,
+    .list-toolbar .header-search input,
+    .list-filter {
+        width: 100%;
+    }
+
+    .action-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .action-group .btn {
+        width: 100%;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 11. SETTINGS PAGE & TOGGLE SWITCH
+   Used only by settings.html: a labelled on/off switch for notification
+   preferences, and a simple section layout for the settings form. */
+.settings-section {
+    margin-bottom: 28px;
+}
+
+.settings-section:last-child {
+    margin-bottom: 0;
+}
+
+.settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.settings-row:last-child {
+    border-bottom: none;
+}
+
+.settings-row-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.settings-row-hint {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-track {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #cbd5e1;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+}
+
+.switch-track::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.switch input:checked + .switch-track {
+    background-color: #2d6a4f;
+}
+
+.switch input:checked + .switch-track::before {
+    transform: translateX(20px);
+}
+
+.switch input:focus-visible + .switch-track {
+    box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.25);
+}
+
+.settings-save-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.settings-saved-note {
+    font-size: 0.85rem;
+    color: #16a34a;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.settings-saved-note.visible {
+    opacity: 1;
+}
+
+/* 12. RESPONSIVE DESIGN (MOBILE & TABLET) — SIDEBAR & SHELL */
 @media (max-width: 900px) {
     .admin-sidebar {
         transform: translateX(-100%);

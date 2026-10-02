@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVELI — Category Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body data-page="categories">
+    <div class="admin-container">
+
+        <div id="sidebarPlaceholder"></div>
+
+        <main class="admin-main">
+            <header class="admin-header page-header">
+                <div class="header-left">
+                    <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open Sidebar">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <div>
+                        <h1 class="header-title">Categories</h1>
+                        <p class="header-subtitle">Organize plants into browsable categories.</p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="card">
+                <div class="card-header flex-between card-header-row">
+                    <div>
+                        <h2 class="card-title">Plant Categories</h2>
+                        <p class="card-subtitle">Add, edit and remove product categories.</p>
+                    </div>
+
+                    <div class="list-toolbar">
+                        <div class="header-search">
+                            <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <circle cx="10.5" cy="10.5" r="6.5" stroke="#2D6A4F" stroke-width="2" />
+                                    <path d="M16 16L21 21" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" />
+                                </svg></span>
+                            <input type="search" id="categorySearchInput" placeholder="Search categories..."
+                                aria-label="Search categories">
+                        </div>
+
+                        <button class="btn btn-primary" onclick="openAddCategoryModal()">+ Add Category</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Products</th>
+                                <th>Category ID</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoryTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="categoryModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title" id="categoryModalTitle">Add New Category</h3>
+                <button class="modal-close" onclick="closeCategoryModal()">&times;</button>
+            </div>
+            <form id="categoryForm" onsubmit="saveCategory(event)">
+                <input type="hidden" id="categoryId">
+                <div class="form-group">
+                    <label class="form-label" for="categoryName">Category Name</label>
+                    <input type="text" id="categoryName" class="form-input" placeholder="e.g. Indoor Plants" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="categoryDescription">Description</label>
+                    <textarea id="categoryDescription" class="form-textarea" rows="3"
+                        placeholder="Brief category description..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeCategoryModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/category.js"></script>
+</body>
+
+</html>

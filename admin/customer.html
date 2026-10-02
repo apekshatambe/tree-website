@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVELI — Customer Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body data-page="customers">
+    <div class="admin-container">
+
+        <div id="sidebarPlaceholder"></div>
+
+        <main class="admin-main">
+            <header class="admin-header page-header">
+                <div class="header-left">
+                    <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open Sidebar">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <div>
+                        <h1 class="header-title">Customers</h1>
+                        <p class="header-subtitle">View and manage registered customer accounts.</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="stats-grid" id="customerStatsGrid"></div>
+
+            <section class="card">
+                <div class="card-header flex-between card-header-row">
+                    <div>
+                        <h2 class="card-title">Registered Customers</h2>
+                        <p class="card-subtitle">Search and manage customer accounts.</p>
+                    </div>
+
+                    <div class="list-toolbar">
+                        <div class="header-search">
+                            <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <circle cx="10.5" cy="10.5" r="6.5" stroke="#2D6A4F" stroke-width="2" />
+                                    <path d="M16 16L21 21" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" />
+                                </svg></span>
+                            <input type="search" id="customerSearchInput" placeholder="Search customers..."
+                                aria-label="Search customers">
+                        </div>
+
+                        <select class="form-select list-filter" id="customerStatusFilter"
+                            aria-label="Filter customers by status">
+                            <option value="All">All Statuses</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Orders</th>
+                                <th>Total Spent</th>
+                                <th>Registered</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customerTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="customerViewModal">
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="customerModalTitle">
+            <div class="modal-header">
+                <h2 class="modal-title" id="customerModalTitle">Customer Details</h2>
+                <button type="button" class="modal-close" onclick="closeCustomerViewModal()"
+                    aria-label="Close modal">&times;</button>
+            </div>
+            <div class="detail-grid" id="customerDetailGrid"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeCustomerViewModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/customer.js"></script>
+</body>
+
+</html>
