@@ -339,7 +339,54 @@
 
     </section>
 
+    <section class="greenery-inspiration" id="greenery-inspiration">
+      <div class="greenery-inspiration__container">
+        <div class="greenery-inspiration__content">
+          <p class="greenery-inspiration__eyebrow">Living with greenery</p>
+          <p class="greenery-inspiration__copy">
+            An <em>artful approach</em> to indoor plants — made for quiet corners and soft light. A few well-chosen leaves can freshen a room and become part of the story that unfolds around it.
+          </p>
+          <h3 class="greenery-inspiration__tagline">Do it your way</h3>
+          <div class="greenery-inspiration__doodle" aria-hidden="true">
+            <img src="../images/about-cat.png" alt="">
+          </div>
+        </div>
+        <div class="greenery-inspiration__image">
+          <div class="greenery-inspiration__image-frame">
+            <img src="../images/about.jpg" alt="Bright room with plants next to a desk">
+          </div>
 
+          <button class="plant-hotspot" type="button" style="--x: 33%; --y: 30%; --w: 20%; --h: 32%;" aria-label="Fiddle Leaf Fig info" aria-describedby="tip-fiddle">
+            <span class="plant-hotspot__tip" id="tip-fiddle" role="tooltip">
+              <strong>Fiddle Leaf Fig</strong>
+              Loves bright, indirect light. Wipe leaves weekly and water when the top soil feels dry.
+            </span>
+          </button>
+
+          <button class="plant-hotspot" type="button" style="--x: 21%; --y: 48%; --w: 14%; --h: 26%;" aria-label="Snake Plant info" aria-describedby="tip-snake">
+            <span class="plant-hotspot__tip" id="tip-snake" role="tooltip">
+              <strong>Snake Plant</strong>
+              Very low-maintenance. Handles low light and needs water only every 2–3 weeks.
+            </span>
+          </button>
+
+          <button class="plant-hotspot" type="button" style="--x: 34%; --y: 66%; --w: 15%; --h: 20%;" aria-label="Calathea info" aria-describedby="tip-calathea">
+            <span class="plant-hotspot__tip plant-hotspot__tip--left" id="tip-calathea" role="tooltip">
+              <strong>Calathea</strong>
+              Prefers medium light and slightly moist soil. Great for adding patterned leaves.
+            </span>
+          </button>
+
+          <button class="plant-hotspot" type="button" style="--x: 22%; --y: 80%; --w: 16%; --h: 20%;" aria-label="Pothos info" aria-describedby="tip-pothos">
+            <span class="plant-hotspot__tip" id="tip-pothos" role="tooltip">
+              <strong>Pothos</strong>
+              Easy trailing plant. Let vines hang for a fuller look; water when soil is partly dry.
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+<!-- greenery inspiration section end -->
 
     <section class="spaces-section" id="spaces">
       <div class="spaces-container">
@@ -389,7 +436,7 @@
     <section class="arveli-about" id="about" aria-labelledby="about-arveli-title">
       <div class="arveli-about__heading">
         <p class="arveli-about__eyebrow">About us</p>
-        <h2 id="about-arveli-title">A little more about Arveli</h2>
+        <h3 id="about-arveli-title">A little more about Arveli</h3>
       </div>
 
       <div class="arveli-carousel-container">
@@ -461,9 +508,9 @@
 
         <div class="arveli-carousel-footer">
           <div class="arveli-carousel-dots" id="arveliAboutDots" role="tablist" aria-label="About Arveli slides">
-          <button type="button" class="active" data-slide="0" role="tab" aria-label="Go to slide 1" aria-selected="true"></button>
+          <button type="button" data-slide="0" role="tab" aria-label="Go to slide 1" aria-selected="false"></button>
           <button type="button" data-slide="1" role="tab" aria-label="Go to slide 2" aria-selected="false"></button>
-          <button type="button" data-slide="2" role="tab" aria-label="Go to slide 3" aria-selected="false"></button>
+          <button type="button" class="active" data-slide="2" role="tab" aria-label="Go to slide 3" aria-selected="true"></button>
           <button type="button" data-slide="3" role="tab" aria-label="Go to slide 4" aria-selected="false"></button>
           </div>
         </div>
@@ -471,7 +518,7 @@
     </section>
     <!-- About Arveli carousel end -->
 
-    <!--footer section start-->
+<!--footer section start-->
 
   <footer class="footers">
     <div class="footer-top">
@@ -532,7 +579,7 @@
       const next = document.getElementById("arveliAboutNext");
       if (!section || !track || !dots.length || !prev || !next) return;
 
-      let current = 0;
+      let current = 2;
       let timer;
 
       const update = (index) => {
@@ -569,17 +616,11 @@
         });
       });
 
-      section.addEventListener("mouseenter", () => clearInterval(timer));
-      section.addEventListener("mouseleave", startAutoPlay);
-      section.addEventListener("focusin", () => clearInterval(timer));
-      section.addEventListener("focusout", (event) => {
-        if (!section.contains(event.relatedTarget)) startAutoPlay();
-      });
-
-      update(0);
+      update(2);
       startAutoPlay();
     })();
   </script>
+
   <script src="wishlist.js"></script>
   <script src="cart.js"></script>
   <script src="global-search.js"></script>

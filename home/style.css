@@ -1273,7 +1273,7 @@ img {
 
 .new-arrivals-card h3 {
   font-family: "Fraunces", serif;
-  font-size: 20px;
+  font-size: 21px;
   color: #1F3A2E;
   font-weight: 600;
 }
@@ -1305,13 +1305,13 @@ color:#023020;
   transform: translateY(2px);
 }
 
-/* ---------- ABOUT / LIVELY ROOM SECTION ---------- */
-.about-section {
+/* ---------- GREENERY INSPIRATION SECTION ---------- */
+.greenery-inspiration {
   padding: 88px 48px;
   background: transparent;
 }
 
-.about-container {
+.greenery-inspiration__container {
   max-width: 1309px;
   margin: 0 auto;
   display: grid;
@@ -1320,7 +1320,7 @@ color:#023020;
   align-items: stretch;
 }
 
-.about-content {
+.greenery-inspiration__content {
   max-width: 28rem;
   padding-top: 0;
   position: relative;
@@ -1328,7 +1328,7 @@ color:#023020;
   width: 100%;
 }
 
-.about-eyebrow {
+.greenery-inspiration__eyebrow {
   margin: 0 0 22px;
   font-family: "Fraunces", serif;
   font-size: 12px;
@@ -1338,7 +1338,7 @@ color:#023020;
   color: #A65C30;
 }
 
-.about-copy {
+.greenery-inspiration__copy {
   margin: 0;
   font-family: "Fraunces", serif;
   font-size: 22px;
@@ -1347,13 +1347,13 @@ color:#023020;
   color: #1F3A2E;
 }
 
-.about-copy em {
+.greenery-inspiration__copy em {
   font-style: italic;
   font-weight: 400;
   color: #C1703D;
 }
 
-.about-section .about-tagline {
+.greenery-inspiration .greenery-inspiration__tagline {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -1368,7 +1368,7 @@ color:#023020;
   color: #1f5c32;
   }
 
-.about-doodle {
+.greenery-inspiration__doodle {
   position: absolute;
   right: -56px;
   bottom: -14px;
@@ -1378,27 +1378,27 @@ color:#023020;
   z-index: 2;
 }
 
-.about-doodle img {
+.greenery-inspiration__doodle img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.about-image {
+.greenery-inspiration__image {
   position: relative;
   overflow: visible;
   background: transparent;
   box-shadow: none;
 }
 
-.about-image__frame {
+.greenery-inspiration__image-frame {
   overflow: hidden;
   border-radius: 4px;
   background: #e7ebe4;
   aspect-ratio: 5 / 6;
 }
 
-.about-image__frame img {
+.greenery-inspiration__image-frame img {
   display: block;
   width: 100%;
   height: 128%;
@@ -1484,7 +1484,7 @@ color:#023020;
   outline: none;
 }
 
-.about-eyebrow {
+.greenery-inspiration__eyebrow {
   margin: 0 0 22px;
   font-family: "Fraunces", serif;
   font-size: 12px;
@@ -1494,7 +1494,7 @@ color:#023020;
   color: #A65C30;
 }
 
-.about-copy {
+.greenery-inspiration__copy {
   margin: 0;
   font-family: "Fraunces", serif;
   font-size: 22px;
@@ -1503,46 +1503,46 @@ color:#023020;
   color: #1F3A2E;
 }
 
-.about-copy em {
+.greenery-inspiration__copy em {
   font-style: italic;
   color: #C1703D;
 }
 
 @media (max-width: 860px) {
-  .about-section {
+  .greenery-inspiration {
     padding: 56px 24px;
   }
 
-  .about-container {
+  .greenery-inspiration__container {
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  .about-content {
+  .greenery-inspiration__content {
     order: 1;
     max-width: none;
     min-height: 280px;
   }
 
-  .about-doodle {
+  .greenery-inspiration__doodle {
     right: 0;
     width: 160px;
     max-width: 160px;
   }
 
-  .about-image {
+  .greenery-inspiration__image {
     order: -1;
   }
 
-  .about-image__frame {
+  .greenery-inspiration__image-frame {
     aspect-ratio: 5 / 6;
   }
 
-  .about-copy {
+  .greenery-inspiration__copy {
     font-size: 19px;
   }
 
-  .about-section .about-tagline {
+  .greenery-inspiration .greenery-inspiration__tagline {
     font-size: 32px;
     margin-top: 22px;
   }
@@ -1561,296 +1561,6 @@ color:#023020;
   .plant-hotspot:hover .plant-hotspot__tip--left,
   .plant-hotspot:focus-visible .plant-hotspot__tip--left {
     transform: translate(-50%, 0);
-  }
-}
-
-/* ---------- ABOUT ARVELI CAROUSEL ---------- */
-.arveli-about {
-  padding: 78px 48px 86px;
-  background: #f7f5ee;
-}
-
-.arveli-about__heading {
-  max-width: 1400px;
-  margin: 0 auto 28px;
-}
-
-.arveli-about__eyebrow {
-  margin: 0 0 8px;
-  color: #a65c30;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.arveli-about__heading h2 {
-  margin: 0;
-  color: #1f3a2e;
-  font-family: "Fraunces", serif;
-  font-size: clamp(34px, 4vw, 48px);
-  font-weight: 600;
-  line-height: 1.05;
-}
-
-.arveli-carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #efefd8;
-  box-shadow: 0 18px 45px rgba(31, 58, 46, 0.1);
-}
-
-.arveli-carousel-viewport {
-  width: 100%;
-  overflow: hidden;
-}
-
-.arveli-carousel-slides {
-  display: flex;
-  width: 100%;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
-}
-
-.arveli-carousel-slide {
-  display: grid;
-  flex: 0 0 100%;
-  min-width: 0;
-  min-height: 560px;
-  grid-template-columns: 43% 57%;
-}
-
-.arveli-slide-image {
-  position: relative;
-  min-width: 0;
-  overflow: hidden;
-}
-
-.arveli-slide-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.8s ease;
-}
-
-.arveli-carousel-slide:hover .arveli-slide-image img {
-  transform: scale(1.025);
-}
-
-.arveli-slide-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 0;
-  padding: 58px 10% 72px 9%;
-  background:
-    linear-gradient(rgba(243, 243, 225, 0.91), rgba(243, 243, 225, 0.91)),
-    url("https://png.pngtree.com/thumb_back/fw800/background/20251014/pngtree-light-brown-crumpled-paper-background-image_19864115.webp");
-  background-position: center;
-  background-size: cover;
-}
-
-.arveli-slide-quote {
-  align-self: flex-end;
-  max-width: 390px;
-  margin: 0 0 34px;
-  color: #4a524c;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 21px;
-  font-style: italic;
-  line-height: 1.4;
-  text-align: right;
-}
-
-.arveli-slide-content h3 {
-  margin: 0 0 18px;
-  color: #101210;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(38px, 4vw, 52px);
-  font-weight: 600;
-  line-height: 1.02;
-}
-
-.arveli-slide-content > p:not(.arveli-slide-quote) {
-  max-width: 560px;
-  margin: 0;
-  color: #4a524c;
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.arveli-slide-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  width: fit-content;
-  margin-top: 26px;
-  padding: 13px 22px;
-  border: 1px solid #101210;
-  border-radius: 999px;
-  background: #101210;
-  color: #fff;
-  font-family: "Manrope", sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 0.25s ease;
-}
-
-.arveli-slide-btn:hover {
-  transform: translateY(-2px);
-  background: transparent;
-  color: #101210;
-}
-
-.arveli-carousel-arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 5;
-  display: grid;
-  width: 46px;
-  height: 46px;
-  padding: 0;
-  place-items: center;
-  transform: translateY(-50%);
-  border: 1px solid rgba(16, 18, 16, 0.08);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: #101210;
-  font-size: 17px;
-  line-height: 1;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.arveli-carousel-arrow:hover {
-  transform: translateY(-50%) scale(1.04);
-  background: #101210;
-  color: #fff;
-}
-
-.arveli-carousel-arrow.prev {
-  left: 22px;
-}
-
-.arveli-carousel-arrow.next {
-  right: 22px;
-}
-
-.arveli-carousel-footer {
-  position: absolute;
-  right: 42px;
-  bottom: 24px;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.arveli-carousel-dots {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.arveli-carousel-dots button {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(31, 37, 32, 0.24);
-  cursor: pointer;
-  transition: width 0.25s ease, background-color 0.25s ease;
-}
-
-.arveli-carousel-dots button.active {
-  width: 25px;
-  background: #101210;
-}
-
-@media (max-width: 900px) {
-  .arveli-about {
-    padding: 60px 24px 70px;
-  }
-
-  .arveli-carousel-slide {
-    min-height: 0;
-    grid-template-columns: 1fr;
-  }
-
-  .arveli-slide-image {
-    height: 330px;
-  }
-
-  .arveli-slide-content {
-    padding: 42px 28px 76px;
-  }
-
-  .arveli-slide-quote {
-    align-self: flex-start;
-    margin-bottom: 28px;
-    text-align: left;
-  }
-
-  .arveli-carousel-arrow {
-    top: 330px;
-  }
-
-  .arveli-carousel-footer {
-    right: 28px;
-    bottom: 22px;
-  }
-}
-
-@media (max-width: 600px) {
-  .arveli-about {
-    padding: 48px 16px 58px;
-  }
-
-  .arveli-about__heading h2 {
-    font-size: 38px;
-  }
-
-  .arveli-slide-image {
-    height: 270px;
-  }
-
-  .arveli-carousel-arrow {
-    top: 270px;
-    width: 42px;
-    height: 42px;
-  }
-
-  .arveli-slide-content {
-    padding: 34px 22px 70px;
-  }
-
-  .arveli-slide-quote {
-    font-size: 19px;
-  }
-
-  .arveli-slide-content h3 {
-    font-size: 38px;
-  }
-
-  .arveli-slide-content > p:not(.arveli-slide-quote) {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .arveli-carousel-footer {
-    right: 22px;
-    gap: 12px;
   }
 }
 
@@ -1964,5 +1674,944 @@ color:#023020;
 @media (min-width: 1025px) {
   .spaces-grid > .col-lg-3 {
     grid-column: auto;
+  }
+}
+
+/* ---------- ABOUT ARVELI CAROUSEL ---------- */
+.arveli-about {
+  width: 100%;
+  padding: 82px 0 58px;
+  background: #f7f5ee;
+  overflow: hidden;
+}
+
+.arveli-about__heading {
+  width: 88.5%;
+  max-width: 1450px;
+  margin: 0 auto 28px;
+}
+
+.arveli-about__eyebrow {
+  margin: 0 0 10px;
+  color: #a65c30;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.arveli-about__heading h2 {
+  margin: 0;
+  color: #1f3a2e;
+  font-family: "Fraunces", serif;
+  font-size: clamp(42px, 4vw, 52px);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+/* Full-width visual panel matching the Arveli reference design */
+.arveli-carousel-container {
+  position: relative;
+  width: calc(100% - 10px);
+  max-width: 1540px;
+  margin: 0 5px;
+  overflow: hidden;
+  background: #efefd8;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.arveli-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.arveli-carousel-slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.arveli-carousel-slide {
+  display: grid;
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 640px;
+  grid-template-columns: 43% 57%;
+}
+
+.arveli-slide-image {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: #e8e4d9;
+}
+
+.arveli-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s ease;
+}
+
+.arveli-carousel-slide:hover .arveli-slide-image img {
+  transform: scale(1.015);
+}
+
+.arveli-slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 54px 8% 60px 8%;
+  background:
+    linear-gradient(rgba(243, 243, 225, 0.92), rgba(243, 243, 225, 0.92)),
+    url("https://png.pngtree.com/thumb_back/fw800/background/20251014/pngtree-light-brown-crumpled-paper-background-image_19864115.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.arveli-slide-quote {
+  align-self: flex-end;
+  max-width: 360px;
+  margin: 0 0 34px;
+  color: #4a524c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.42;
+  text-align: right;
+}
+
+.arveli-slide-content h3 {
+  margin: 0 0 18px;
+  color: #101210;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(40px, 3.35vw, 52px);
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+.arveli-slide-content > p:not(.arveli-slide-quote) {
+  max-width: 610px;
+  margin: 0;
+  color: #4a524c;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.arveli-slide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  margin-top: 26px;
+  padding: 13px 22px;
+  border: 1px solid #101210;
+  border-radius: 999px;
+  background: #101210;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.arveli-slide-btn:hover {
+  transform: translateY(-2px);
+  background: transparent;
+  color: #101210;
+}
+
+.arveli-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: grid;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #101210;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+}
+
+.arveli-carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.04);
+  background: #101210;
+  color: #fff;
+}
+
+.arveli-carousel-arrow.prev {
+  left: 22px;
+}
+
+.arveli-carousel-arrow.next {
+  right: 22px;
+  background: #101210;
+  color: #ffffff;
+}
+
+.arveli-carousel-arrow.next:hover {
+  background: #ffffff;
+  color: #101210;
+}
+
+.arveli-carousel-footer {
+  position: absolute;
+  right: 46px;
+  bottom: 17px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.arveli-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arveli-carousel-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(31, 37, 32, 0.24);
+  cursor: pointer;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.arveli-carousel-dots button.active {
+  width: 25px;
+  background: #101210;
+}
+
+@media (max-width: 1100px) {
+  .arveli-about__heading {
+    width: calc(100% - 48px);
+  }
+
+  .arveli-carousel-container {
+    width: calc(100% - 10px);
+  }
+
+  .arveli-carousel-slide {
+    min-height: 430px;
+  }
+
+  .arveli-slide-content {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+}
+
+@media (max-width: 900px) {
+  .arveli-about {
+    padding: 60px 0 50px;
+  }
+
+  .arveli-about__heading {
+    width: calc(100% - 40px);
+    margin-bottom: 24px;
+  }
+
+  .arveli-carousel-slide {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .arveli-slide-image {
+    height: 330px;
+  }
+
+  .arveli-slide-content {
+    min-height: 410px;
+    padding: 42px 30px 76px;
+  }
+
+  .arveli-slide-quote {
+    align-self: flex-start;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .arveli-carousel-arrow {
+    top: 330px;
+  }
+
+  .arveli-carousel-footer {
+    right: 28px;
+    bottom: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .arveli-about {
+    padding: 48px 0 44px;
+  }
+
+  .arveli-about__heading {
+    width: calc(100% - 32px);
+  }
+
+  .arveli-about__heading h2 {
+    font-size: 38px;
+  }
+
+  .arveli-carousel-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .arveli-slide-image {
+    height: 270px;
+  }
+
+  .arveli-carousel-arrow {
+    top: 270px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .arveli-carousel-arrow.prev {
+    left: 14px;
+  }
+
+  .arveli-carousel-arrow.next {
+    right: 14px;
+  }
+
+  .arveli-slide-content {
+    min-height: 390px;
+    padding: 34px 22px 70px;
+  }
+
+  .arveli-slide-quote {
+    font-size: 19px;
+  }
+
+  .arveli-slide-content h3 {
+    font-size: 38px;
+  }
+
+  .arveli-slide-content > p:not(.arveli-slide-quote) {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .arveli-carousel-footer {
+    right: 22px;
+    bottom: 22px;
+  }
+}
+
+/* ---------- SHOP BY SPACE SECTION ---------- */
+
+
+
+/* =========================================================
+   FINAL ABOUT SECTION ALIGNMENT — REFERENCE LAYOUT
+   ========================================================= */
+.arveli-about {
+  width: 100%;
+  padding: 84px 0 58px;
+  background: #f7f5ee;
+  overflow: hidden;
+}
+
+.arveli-about__heading {
+  width: 88.5%;
+  max-width: 1450px;
+  margin: 0 auto 28px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.arveli-about__eyebrow {
+  margin: 0 0 12px;
+  color: #a65c30;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.arveli-about__heading h2 {
+  margin: 0;
+  color: #1f3a2e;
+  font-family: "Fraunces", serif;
+  font-size: clamp(42px, 3.25vw, 52px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -.025em;
+}
+
+.arveli-carousel-container {
+  position: relative;
+  width: calc(100% - 10px);
+  margin: 0 5px;
+  overflow: hidden;
+  background: #efefd8;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.arveli-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.arveli-carousel-slides {
+  display: flex;
+  width: 100%;
+  transition: transform .65s cubic-bezier(.25,1,.5,1);
+  will-change: transform;
+}
+
+.arveli-carousel-slide {
+  display: grid;
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  height: 438px;
+  min-height: 438px;
+  grid-template-columns: 43% 57%;
+}
+
+.arveli-slide-image {
+  position: relative;
+  min-width: 0;
+  height: 438px;
+  overflow: hidden;
+  background: #e8e4d9;
+}
+
+.arveli-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.arveli-slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  height: 438px;
+  box-sizing: border-box;
+  padding: 54px 8% 60px 9%;
+  background:
+    linear-gradient(rgba(243,243,225,.92), rgba(243,243,225,.92)),
+    url("https://png.pngtree.com/thumb_back/fw800/background/20251014/pngtree-light-brown-crumpled-paper-background-image_19864115.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.arveli-slide-quote {
+  align-self: flex-end;
+  max-width: 390px;
+  margin: 0 0 32px;
+  color: #4a524c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.38;
+  text-align: right;
+}
+
+.arveli-slide-content h3 {
+  margin: 0 0 18px;
+  color: #101210;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(40px, 3.25vw, 52px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.015em;
+}
+
+.arveli-slide-content > p:not(.arveli-slide-quote) {
+  max-width: 610px;
+  margin: 0;
+  color: #5b625d;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.arveli-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: grid;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.94);
+  color: #101210;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(0,0,0,.06);
+}
+
+.arveli-carousel-arrow.prev {
+  left: 20px;
+}
+
+.arveli-carousel-arrow.next {
+  right: 20px;
+  background: #101210;
+  color: #fff;
+}
+
+.arveli-carousel-footer {
+  position: absolute;
+  right: 45px;
+  bottom: 17px;
+  z-index: 6;
+}
+
+.arveli-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arveli-carousel-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(31,37,32,.24);
+  cursor: pointer;
+}
+
+.arveli-carousel-dots button.active {
+  width: 8px;
+  background: #101210;
+}
+
+@media (max-width: 900px) {
+  .arveli-about {
+    padding: 60px 0 50px;
+  }
+
+  .arveli-about__heading {
+    width: calc(100% - 40px);
+    margin-bottom: 24px;
+  }
+
+  .arveli-carousel-slide {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+
+  .arveli-slide-image {
+    height: 330px;
+  }
+
+  .arveli-slide-content {
+    height: auto;
+    min-height: 410px;
+    padding: 42px 30px 76px;
+  }
+
+  .arveli-slide-quote {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .arveli-carousel-arrow {
+    top: 330px;
+  }
+}
+
+@media (max-width: 600px) {
+  .arveli-about {
+    padding: 48px 0 44px;
+  }
+
+  .arveli-about__heading {
+    width: calc(100% - 32px);
+  }
+
+  .arveli-about__heading h2 {
+    font-size: 38px;
+  }
+
+  .arveli-carousel-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .arveli-slide-image {
+    height: 270px;
+  }
+
+  .arveli-carousel-arrow {
+    top: 270px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .arveli-carousel-arrow.prev { left: 14px; }
+  .arveli-carousel-arrow.next { right: 14px; }
+
+  .arveli-slide-content {
+    min-height: 390px;
+    padding: 34px 22px 70px;
+  }
+
+  .arveli-slide-content h3 {
+    font-size: 38px;
+  }
+
+  .arveli-carousel-footer {
+    right: 22px;
+    bottom: 22px;
+  }
+}
+
+
+/* =========================================================
+   ARVELI ABOUT — FINAL REFERENCE MATCH
+   ========================================================= */
+
+.arveli-about {
+  width: 100%;
+  padding: 84px 0 58px;
+  margin: 0;
+  background: #f7f5ee;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.arveli-about__heading {
+  width: auto;
+  max-width: none;
+  margin: 0 0 28px 92px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.arveli-about__eyebrow {
+  margin: 0 0 12px;
+  color: #a65c30;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.arveli-about__heading h3 {
+  margin: 0;
+  color: #1f3a2e;
+  font-family: "Fraunces", serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -.025em;
+}
+
+.arveli-carousel-container {
+  position: relative;
+  width: calc(100% - 10px);
+  max-width: none;
+  margin: 0 5px;
+  padding: 0;
+  overflow: hidden;
+  background: #efefd8;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.arveli-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.arveli-carousel-slides {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transform: translateX(-200%);
+  transition: transform .65s cubic-bezier(.25,1,.5,1);
+  will-change: transform;
+}
+
+.arveli-carousel-slide {
+  display: grid;
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  height: 600px;
+  min-height: 600px;
+  grid-template-columns: 43% 57%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.arveli-slide-image {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #e8e4d9;
+}
+
+.arveli-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.arveli-slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 600px;
+  min-width: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 54px 9% 60px 9%;
+  background:
+    linear-gradient(rgba(243,243,225,.92), rgba(243,243,225,.92)),
+    url("https://png.pngtree.com/thumb_back/fw800/background/20251014/pngtree-light-brown-crumpled-paper-background-image_19864115.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.arveli-slide-quote {
+  align-self: flex-end;
+  max-width: 390px;
+  margin: 0 0 32px;
+  padding: 0;
+  color: #4a524c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.38;
+  text-align: right;
+}
+
+.arveli-slide-content h3 {
+  margin: 0 0 18px;
+  padding: 0;
+  color: #101210;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.015em;
+}
+
+.arveli-slide-content > p:not(.arveli-slide-quote) {
+  max-width: 610px;
+  margin: 0;
+  padding: 0;
+  color: #5b625d;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.arveli-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  display: grid;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.94);
+  color: #101210;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(0,0,0,.06);
+}
+
+.arveli-carousel-arrow.prev {
+  left: 20px;
+}
+
+.arveli-carousel-arrow.next {
+  right: 20px;
+  background: #101210;
+  color: #fff;
+}
+
+.arveli-carousel-footer {
+  position: absolute;
+  right: 45px;
+  bottom: 17px;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+}
+
+.arveli-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.arveli-carousel-dots button,
+.arveli-carousel-dots button.active {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(31,37,32,.24);
+  cursor: pointer;
+}
+
+.arveli-carousel-dots button.active {
+  background: #101210;
+}
+
+/* Desktop reference is the target. Keep responsive behavior below it. */
+@media (max-width: 900px) {
+  .arveli-about {
+    padding: 60px 0 50px;
+  }
+
+  .arveli-about__heading {
+    margin: 0 20px 24px;
+  }
+
+  .arveli-about__heading h2 {
+    font-size: clamp(38px, 6vw, 48px);
+  }
+
+  .arveli-carousel-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .arveli-carousel-slide {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+
+  .arveli-slide-image {
+    height: 330px;
+  }
+
+  .arveli-slide-content {
+    height: auto;
+    min-height: 410px;
+    padding: 42px 30px 76px;
+  }
+
+  .arveli-slide-quote {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .arveli-carousel-arrow {
+    top: 330px;
+  }
+}
+
+@media (max-width: 600px) {
+  .arveli-about {
+    padding: 48px 0 44px;
+  }
+
+  .arveli-about__heading {
+    margin: 0 16px 22px;
+  }
+
+  .arveli-about__heading h2 {
+    font-size: 38px;
+  }
+
+  .arveli-slide-image {
+    height: 270px;
+  }
+
+  .arveli-carousel-arrow {
+    top: 270px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .arveli-carousel-arrow.prev {
+    left: 14px;
+  }
+
+  .arveli-carousel-arrow.next {
+    right: 14px;
+  }
+
+  .arveli-slide-content {
+    min-height: 390px;
+    padding: 34px 22px 70px;
+  }
+
+  .arveli-slide-content h3 {
+    font-size: 38px;
+  }
+
+  .arveli-carousel-footer {
+    right: 22px;
+    bottom: 22px;
   }
 }
