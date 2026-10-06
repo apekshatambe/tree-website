@@ -25,7 +25,7 @@ function addToCart(product, qty) {
   const amount = Math.max(1, Number(qty) || 1);
   const items = getCart();
   const existing = items.find((item) => item.id === product.id);
-  const image = normalizeImagePath(product.image);
+  const image = normalizeImagePath(product.image);  
 
   if (existing) {
     existing.qty += amount;
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         qty
       );
-      addBtn.textContent = "Added ✓";
+      addBtn.textContent = "Added";
       setTimeout(() => {
         addBtn.textContent = "Add to cart";
       }, 1000);

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("products-grid");
-  if (!grid) return;
+  if (!grid) return;                                                                                                      
 
   const categorySelect = document.getElementById("filter-category");
   const sizeSelect = document.getElementById("filter-size");
